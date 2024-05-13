@@ -41,7 +41,7 @@ switch(a){
         console.log(a)
         // break;
     case 3:
-        console.log(a)
+        console.log(a*2)
         break;  
     default:
         break;
