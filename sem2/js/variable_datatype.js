@@ -47,7 +47,10 @@ switch(a){
         break;
 }
 
-// 
+// ternary
+num=30
+num=2 ? console.log("okkk"):console.log("not ok")
+
 
 
 
