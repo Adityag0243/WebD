@@ -34,15 +34,6 @@ console.log(ioi("PW"))
 
 
 
-
-
-
-
-
-
-
-
-
 // ///////   ARGUMENT   by default each functions store argument in array like object
 
 // function func1(a,b,c) {
@@ -94,10 +85,18 @@ console.log(ioi("PW"))
 
 
 
-function sum(a,b,c){  // arguments--> array
-    return arguments[0]+arguments[1]+arguments[2]
+// function sum(a,b,c){  // arguments--> array
+//     return arguments[0]+arguments[1]+arguments[2]
     
-}
-console.log(sum(4,5))
+// }
+// console.log(sum(4,5))
+
+
+/* these all are first class function
+2.HOF
+3.FunctionaL PRogramming
+*/
+
+
 
 
