@@ -53,6 +53,13 @@ setInterval(()=>{//here setinter.. fn taking two parameter 1.arroy fn 2.interval
 
 //(III) /////////////// Functional Programming
 /*
+instead for writing regular loops latest version of JS introduce lot of built in methods
+ which can help us to solve complicated problem all built in method takes call back function as a paramter few
+ of them are map , filter , reduce , sort , for each , every , sum...
+*/
+
+
+/*
 1.map: 
     a.iterate an array element and modify array element ,
     b.it takes a callback fn with element index array
@@ -148,5 +155,11 @@ console.log(square)  //[ NaN, NaN, NaN, NaN, NaN ]
 // const arr=["random","Acc","Abhay","krish","Dinkar"]
 // arr.sort()
 // console.log(arr)
+['a', 'b', 'c'].forEach((char, index) => {
+    console.log(index + char);
+  });
+
+
+
 
 
