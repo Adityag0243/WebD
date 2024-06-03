@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Event Assignment</title>
+</head>
+<body>
+    <ul class="ul1">
+        <button>1</button><button>2</button><button>3</button><button>4</button><button>5</button>
+    </ul>
+    <h1></h1>
+
+    <script>
+
+       /* function show_rating(){
+             const show=document.createElement("h1")
+                console.log(show)
+                let star=i
+                star+=" Star Selected"
+                show.textContent=star
+                document.body.appendChild(show); 
+        } */
+
+
+        const target=document.querySelectorAll("button");
+        for(let i=0;i<5;i++){
+            let a="id";
+            a+=i;
+            target[i].setAttribute("id",a);
+            target[i].addEventListener("click",e=>{
+                
+                const show=document.querySelector("h1")
+                let star=i+1
+                star+=" Star Selected"
+                const sh=document.createElement("p")
+                sh.textContent=star
+                show.innerHTML=star
+            })
+        }   
+        
+
+    </script>
+
+
+    <style>
+        /*ul{
+            height: fit-content;
+            width: fit-content;
+            border: #281515;
+            
+        }*/
+        button{
+            height: 50px;
+            width: 50px;
+            border: 1px solid  #c86060;
+            background-color: #db9696;
+            margin: 5px;
+        }
+        button:hover{
+            
+            background-color: #c86060;
+        }
+        
+    </style>
+</body>
+</html>
