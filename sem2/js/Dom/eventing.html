@@ -1,0 +1,41 @@
+<!-- dboq
+click
+double click
+mouse enter 
+mouse leave
+key down
+key up
+on load   
+blur -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Event</title>
+</head>
+<body>
+    <!-- <button>Hola</button> -->
+    <script>
+
+        function change(){
+            console.log("hello ji");
+        }
+        const bt=document.createElement("button");
+        console.log("bt");
+        bt.textContent="Hola";
+        document.body.appendChild(bt);
+
+
+        const btn=document.querySelector("button");
+        btn.addEventListener("click",change);  // function ka bas nam dena hai 
+
+        
+
+
+    </script>
+</body>
+</html>
+
+ 
