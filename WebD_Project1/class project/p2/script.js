@@ -45,9 +45,11 @@ document.addEventListener("DOMContentLoaded",(event)=>{
         // delButtonAppend.style.color="#7b2b4f"
         delButtonAppend.style.color="#453F78"
         delButtonAppend.addEventListener("click",()=>{
-            ul_val.removeChild(listAppend)
-            ul_val.removeChild(meme)
+            
+            ul_val.removeChild(listAppend)  
+            ul_val.removeChild(meme)       
             ul_val.appendChild(meme2);
+            
             removeElementAfterTime(meme2, 3000);
         })
 
