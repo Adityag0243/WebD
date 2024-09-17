@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../node_modules/bootstrap-icons/font/bootstrap-icons.css">
+    <style>
+        main{
+            height: 500px;
+            display: grid;
+            grid-template-columns: 4fr 4fr 4fr;
+            margin-top: 20px;
+            margin-bottom: 20px;
+        }
+        .women-fashion{
+            background-image: url(../public/image/women-fashion.jpg);
+            background-size: cover;
+            margin-right: 2px;
+            display: flex;
+            flex-direction: column;
+            text-align: center;
+            opacity: 0.7;     
+        }
+        .men-fashion{
+            background-image: url(../public/image/men-fashion.jpg);
+            background-size: cover;
+            margin-right: 2px;
+            display: flex;
+            flex-direction: column;
+            text-align: center;
+            opacity: 0.7;  
+        }
+        .kid-fashion{
+            background-image: url(../public/image/kid-fashion.jpg);
+            background-size: cover;
+            display: flex;
+            flex-direction: column;
+            text-align: center;
+            opacity: 0.7;  
+        }
+        .women-fashion:hover{
+            opacity: 1;
+            cursor: pointer;
+        }
+        .men-fashion:hover{
+            opacity: 1;
+            cursor: pointer;
+        }
+        .kid-fashion:hover{
+            opacity: 1;
+            cursor: pointer;
+        }
+        .card-header{
+            color: white;
+            font-size: 30px;
+            font-family: Arial, Helvetica, sans-serif;
+            font-weight: bold;
+            text-shadow: 1px 1px 1px lightgray;
+        }
+        button{
+            border: none;
+            padding: 10px 15px;
+            border-radius: 2px;
+        }
+        .card-header{
+            margin-top: 200px;
+            margin-bottom: 200px;
+        }  
+        
+    </style>
+</head>
+<body>
+    <main>
+        <div class="women-fashion">
+            <div class="card">
+                <div class="card-header">WOMEN</div>
+                <div class="card-footer">
+                    <button>Shop Women <span class="bi bi bi-arrow-right"></span></button>
+                </div>
+
+            </div>
+
+        </div>
+        <div class="men-fashion">
+            <div class="card">
+                <div class="card-header">MEN</div>
+                <div class="card-footer">
+                    <button>Shop Men <span class="bi bi bi-arrow-right"></span></button>
+                </div>
+
+            </div>
+
+        </div>
+        <div class="kid-fashion">
+            <div class="card">
+                <div class="card-header">KID</div>
+                <div class="card-footer">
+                    <button>Shop Kid <span class="bi bi bi-arrow-right"></span></button>
+                </div>
+
+            </div>
+
+        </div>
+    </main>
+    
+</body>
+</html>
