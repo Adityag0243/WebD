@@ -1,0 +1,17 @@
+dt{
+    font-weight: bold;
+}
+dl{
+    display: grid;
+    grid-template-columns: 6fr 6fr;
+    padding: 5px;
+}
+div{
+    text-align: center;
+    border: 2px solid rgb(28, 34, 28);
+    height: 400px;
+    width: 900px;
+    margin: 15px;
+    padding: 5px;
+    background-color: rgb(230, 225, 225);
+}

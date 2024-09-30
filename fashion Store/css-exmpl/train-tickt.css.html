@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../src/style/css/train-effect.css">
+
+    <style type="text/css" media="print">
+        dt{
+            font-weight: bold;
+        }
+        dl{
+            display: grid;
+            grid-template-columns: 6fr 6fr;
+            padding: 5px;
+        }
+        div{
+            margin: 15px;
+            padding: 5px;
+            background-color: azure;
+        }
+        marquee , button{
+            display: none;
+        }
+
+    </style>
+
+
+
+
+</head>
+<body>
+    <!-- <video src="../public/video/3191107-sd_640_360_25fps.mp4" poster="../public/image/2-2.jpg" width="300" height="250" controls muted ></video>
+     <audio src="../public/audio/file_example_MP3_700KB.mp3" controls autoplay="true" muted></audio> -->
+     <div>
+        <marquee direction="left" scrollamount="25" >
+            <img src="../public/image/toppng.com-clipart-toy-train-train-clipart-transparent-background-1556x557.png" height="200px" width="400px" alt="">
+         </marquee>
+         <h1>Train Ticket</h1>
+         <dl>
+            <dt>Departure</dt>
+            <dd>19-09-2028</dd>
+            <dt>Time</dt>
+            <dd>13:00</dd>
+         </dl>
+         <button type="button">Print</button>
+     </div>
+</body>
+</html>
