@@ -1,0 +1,352 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../node_modules/bootstrap-icons/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="../node_modules/bootstrap/dist/css/bootstrap.css">
+    <style type="text/css">
+        *{
+            font-family: Arial, Helvetica, sans-serif;
+        }
+        .header1{
+            background-color: black;
+            color: white;
+            display: flex;
+            justify-content: space-between;
+            padding: 7px;
+            margin: 10px;
+        }
+        .header1 div{
+            margin-left: 9.6%;
+        }
+        .header1 aside{
+            margin-right: 10%;
+        }
+        
+
+
+
+        span{
+            margin-left: 12px;
+            font-size: 12px;
+        }
+        nav span{
+            margin-left: 15px;
+        }
+
+        .header2{
+            display: flex;
+            justify-content: space-between;
+            padding: 7px;
+            margin: 10px;
+        }
+        .header2 div{
+            margin-left: 10%;
+        }
+        .header2 nav{
+            margin-right: 10%;
+        }
+
+        .bi-cart-fill{
+            font-size: 20px;
+        }
+        span a{
+            text-decoration: none;
+            color: orange;
+        }
+
+
+        
+        .frontImg{
+            height: 300px;
+            color: rgb(0, 0, 0);
+            background-image: url(../public/image/es-bgc.png);
+            background-color: rgba(255, 0, 0, 0.947);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin: 10px;
+        }
+        .cnt{
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+        .cnt button{
+            padding: 7px 15px 7px 15px;
+            color: white;
+            font-size: 10px;
+            background-color: rgb(255, 64, 0);
+            border: 1px solid rgb(255, 64, 0);
+        }
+        .main{
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .boatProduct{
+            margin-left: 10%;
+            display: flex;
+            flex-wrap: wrap;
+        }
+
+        .boatImg{
+            margin: 20px;
+        }
+
+
+        .boatImg img{
+            height: 250px;
+        }
+
+
+        .price{
+            display: flex;
+            flex-direction: column;
+            margin-left: 25px;
+        }
+        .price span{
+            margin-bottom: 10px;
+        }
+
+
+        footer{
+            background-color: orangered;
+            color: white;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 50px;
+        }
+        footer div , footer span{
+            margin-bottom: 25px;
+        }
+        input{
+            width: 350px;
+            height: 35px;
+            border: 1px solid white;
+        }
+        input::placeholder{
+            font-size: 12px;
+            padding: 15px;
+
+        }
+
+
+        .descripImg{
+            margin-left: 10%;
+            margin-right: 10%;
+            height: 300px;
+            display: grid;
+            grid-template-columns: 6fr 6fr;
+        }
+        .descripImg div img{
+            height: 275px;
+            width: 500px;
+        }
+        .descripImg div {
+            display: flex;
+            flex-direction: column;
+        }
+        .descripImg span {
+            margin: 10px;
+            font-size: 10px;
+            color: rgb(92, 91, 91);
+        }
+        .descripImg div button {
+            background-color: white;
+            font-size: 10px;
+            padding: 7px 25px 7px 25px;
+            border: 1px solid black;
+        }
+        .reviewBox{
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+        .review{
+            margin-left: 18%;
+            margin-right: 18%;
+            background-color: antiquewhite;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .reviewBox{
+            height: 200px;
+            background-color: white;
+            margin: 15px 20px 15px 20px;
+        }
+
+
+        .reviewBox img{
+            height: 40px;
+            width: 40px;
+            border-radius: 40px;
+        }
+        .review div{
+            display: flex;
+        }
+        @media  screen and (minwidth:700px) {
+            .review div{
+                flex-wrap:wrap;
+            }
+            
+        }
+
+
+        footer button {
+            background-color: orangered;
+            color: white;
+            font-size: 12px;
+            width: 100px;
+            padding: 7px 20px 7px 20px;
+            border: 1px solid white;
+        }        
+
+    </style>
+</head>
+<body>
+    <header>
+        <div class="header1">
+            <div>
+                <span>+48 789 456 123</span>
+                <span>contact@pwioi.com</span>
+            </div>
+            <aside>
+                <span class="bi bi-facebook"></span>
+                <span class="bi bi-youtube"></span>
+                <span class="bi bi-instagram"></span>
+                <span class="bi bi-pinterest"></span>
+                <span class="bi bi-linkedin"></span>
+            </aside>
+        </div>
+        <div class="header2">
+            <div style="font-weight: bold; font-size:25px;">
+                SSURFERS
+            </div>
+            <nav>
+                <span>Home</span>
+                <span>Products</span>
+                <span>Blogs</span>
+                <span>About us</span>
+                <span>Contact</span>
+                <span class="bi bi-cart-fill"></span>
+            </nav>
+        </div>
+
+        <main>
+            <div class="frontImg">
+                <div class="cnt">
+                    <div class="h3">Chose a board for yourself</div>
+                    <span>Lorem ipsum dolor sit aloribus nemo nam nisi sunt debitis natus. Ipsam reiciendis vitae nulla sunt non iusto.</span>
+                    <span>Lorem ipsum dolor sitetur, adipisicindipisci pariatur sunt dolor facilis voluptatum!</span> <br>
+                    <button>CHECK OUR BOARDS</button>
+                </div>
+            </div>
+
+            <div style="margin-left: 45%; font-size:20px;">Surfboard</div>
+            <div class="boatProduct">
+                <div class="boatImg">
+                    <img src="../public/image/es-1boat.png.png" alt="">
+                    <div class="price">
+                        <span>Product 8</span>
+                        <span>340,000 USD</span>
+                        <span><a href="#">Zobac wiecej <span class="bi bi-arrow-right"></span></a></span>
+                    </div>
+                </div>
+
+
+                <div class="boatImg">
+                    <img src="../public/image/es-2boat.png.png" alt="">
+                    <div class="price">
+                        <span>Product 7</span>
+                        <span>425,000 USD</span>
+                        <span><a href="#">Zobac wiecej <span class="bi bi-arrow-right"></span></a></span>
+                    </div>
+                </div>
+
+
+                <div class="boatImg">
+                    <img src="../public/image/es-3boat.png.png" alt="">
+                    <div class="price">
+                        <span>Product 6</span>
+                        <span>370,000 USD</span>
+                        <span><a href="#">Zobac wiecej <span class="bi bi-arrow-right"></span></a></span>
+                    </div>
+                </div>
+
+
+                <div class="boatImg">
+                    <img src="../public/image/es-4boat.png.png" alt="">
+                    <div class="price">
+                        <span>Product 5</span>
+                        <span>450,000 USD</span>
+                        <span><a href="#">Zobac wiecej <span class="bi bi-arrow-right"></span></a></span>
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="descripImg">
+                <div>
+                    <img src="../public/image/es-multiboats.png.png" alt="">
+                </div>
+                <div>
+                    <span style="font-size: 20px;">Learn more about surfing</span>
+                    <span>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Odit fugiat voluptatem minis sed rem obcaecati possimus optio commodi, cum provident facere quasi voluptate molestiae consectetur, ullam quas. Rerum reiciendis, adipisci ad, nemo ipsam, quos nihil ab soluta officia porro magni!</span>
+                    <span> <button>READ MORE</button></span>
+                   
+
+                </div>
+            </div>
+
+
+            <div class="review">
+                <div class="h3" style="margin: 25px;">Customer reviews</div>
+                <span>
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Architecto repellendus optio hic quam, impm quasi.
+                </span>
+                <span style="margin-bottom: 20px;">Lorem ipsum dolor sit amet  Vero omnis tenetur laudantium velit optio quos.</span>
+
+                <div>
+                    <div class="reviewBox">
+                        <img src="../public/image/es-1profile.png" alt="">
+                        <span style="margin-bottom: 15px;">Lorem ipsum dolor sit Lorem ipsum dolor sit, amet consectetur adipisicing elit. Molestias, corrupti quam. Ipsam libero laboriosam rerum. amet consectetur adipisicing elit. Sit asperiores vero modi, voluptatem lat quos.</span>
+                        <span style="color: orange;">@Juloio_Diaz</span>
+                    </div>
+                    <div class="reviewBox">
+                        <img src="../public/image/es-2profile.png" alt="">
+                        <span style="margin-bottom: 15px;">Lorem ipsum dolor sit amet consectetur adipisicing elit. Sit asperiores vero modi, volu Lorem ipsum dolor sit amet consectetur adipisicing elit. Illum sint ex vel labore rem? Ullam.ptatem lat quos.</span>
+                        <span style="color: rgb(255, 153, 0);">@Lisa_Wright</span>
+                    </div>
+                </div>
+
+            </div>
+
+
+
+        </main>
+
+        <footer >
+            <div class="h3">SignUp for newsletter!</div>
+            <span>SignUp for newsletter and receive free web design knowledge</span> <br>
+            <input type="email" placeholder="Your email"> <br>
+            <button>SIGN UP</button>
+        </footer>
+
+
+
+
+    </header>
+</body>
+</html>
