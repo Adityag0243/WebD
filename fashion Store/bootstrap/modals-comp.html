@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../node_modules/bootstrap-icons/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="../node_modules/bootstrap/dist/css/bootstrap.css">
+</head>
+<body>
+    <button class="btn btn-primary m-3" data-bs-toggle="modal" data-bs-target="#login">Login</button>
+
+    <div class="modal" id="login">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header bg-primary text-light">
+                    <h2> <span class="bi bi-person-fill"></span> User Login</h2>
+                    <button class="btn btn-close" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body">
+                    <dl>
+                        <dt>Username</dt>
+                        <dd>
+                            <input class="form-control" type="text">
+                        </dd>
+                        <dt>Password</dt>
+                        <dd>
+                            <input class="form-control" type="password">
+                        </dd>
+                    </dl>
+
+                </div>
+                <div class="modal-footer">
+                    <button class="btn btn-primary">Login</button>
+                    <button class="btn btn-danger" data-bs-dismiss="modal">Cancel</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="btn btn-warning" data-bs-toggle="modal" data-bs-target="#iphone-modal">Detail</div>
+
+    <div class="modal" id="iphone-modal">
+        <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
+        <!-- <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable modal-fullscreen">  to attach with screen we use full screen class-->
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h2>IPHONE-16</h2>
+                    <button class="btn btn-close" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body">
+                    <img style="height: 350px;" src="../public/image/iphone-img.png" alt="">
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+
+
+    <script src="../node_modules/jquery/dist/jquery.js"></script>
+    <script src="../node_modules/bootstrap/dist/js/bootstrap.bundle.js"> </script>
+    
+</body>
+</html>
