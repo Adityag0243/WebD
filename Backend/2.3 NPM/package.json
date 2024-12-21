@@ -1,0 +1,24 @@
+{
+  "name": "learning-npm",
+  "version": "1.0.0",
+  "description": "Leaning NPM",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Adityag0243/WebD.git"
+  },
+  "author": "Aditya Gupta",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Adityag0243/WebD/issues"
+  },
+  "homepage": "https://github.com/Adityag0243/WebD#readme",
+  "dependencies": {
+    "sillyname": "^0.1.0",
+    "superheroes": "^4.0.0"
+  }
+}
