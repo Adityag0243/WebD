@@ -19,13 +19,6 @@ document.addEventListener("DOMContentLoaded",(event)=>{
         meme.width="200"
         meme.height="350"
 
-
-        // const memevid=document.createElement("video")
-        // memevid.src=".\abe sale meme download no copyright.mp4";
-        
-        // memevid.title="nhi mila bhai kya kru"
-
-
         const meme2=document.createElement("img")
         meme2.src="https://media.tenor.com/jc6rLoN3gWEAAAAi/g%C3%B6zl%C3%BCkl%C3%BC-kedi.gif";
         meme2.title="nhi mila "
@@ -41,9 +34,10 @@ document.addEventListener("DOMContentLoaded",(event)=>{
         const listAppend=document.createElement("li")
         listAppend.textContent=tasktext+" "
         const delButtonAppend=document.createElement("button")
+        delButtonAppend.classList.add("btn", "btn-danger", "ml-3")
         delButtonAppend.textContent="Delete"
         // delButtonAppend.style.color="#7b2b4f"
-        delButtonAppend.style.color="#453F78"
+        // delButtonAppend.style.color="#453F78"
         delButtonAppend.addEventListener("click",()=>{
             
             ul_val.removeChild(listAppend)  
@@ -52,6 +46,9 @@ document.addEventListener("DOMContentLoaded",(event)=>{
             
             removeElementAfterTime(meme2, 3000);
         })
+
+
+        
 
 
         function removeElementAfterTime(meme, timeInMilliseconds) {
@@ -67,18 +64,11 @@ document.addEventListener("DOMContentLoaded",(event)=>{
         
         removeElementAfterTime(meme, 3000);
 
-
-
-
-
-
         listAppend.appendChild(delButtonAppend)
         ul_val.appendChild(listAppend)
         ul_val.appendChild(meme);
         // ul_val.appendChild(memevid)
-        input_val.value=""
-       
-
+        input_val.value="";
 
         
     })
