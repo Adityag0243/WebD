@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Task List with Priority</title>
+</head>
+<body>
+    <input id="task" type="text" placeholder="Enter a task">
+    <select id="priority">
+        <option value="high">High</option>
+        <option value="medium">Medium</option>
+        <option value="low">Low</option>
+    </select>
+    <button id="addBtn">Add Task</button>
+    <ol id="olist"></ol>
+
+    <script>
+        const taskDescription = document.querySelector('#task');
+        const prioritySelector = document.querySelector('#priority');
+        const ol = document.querySelector('#olist');
+        const btn = document.querySelector('#addBtn');
+
+        btn.addEventListener('click', () => {
+            const taskValue = taskDescription.value.trim();
+            const priority = prioritySelector.value;
+
+            if (!taskValue) {
+                alert("Please enter a task.");
+                return;
+            }
+
+            // Create the delete button
+            const delbtn = document.createElement('button');
+            delbtn.textContent = 'Delete';
+
+            // Create the list item
+            const li = document.createElement('li');
+            li.textContent = `${taskValue} (Priority: ${priority})`;
+
+            // Append the delete button to the list item
+            li.appendChild(delbtn);
+
+            // Add the task to the list based on priority
+            if (priority === 'high') {
+                ol.insertBefore(li, ol.firstChild); // Add at the top
+            } else if (priority === 'medium') {
+                const lowPriorityTasks = Array.from(ol.children).filter(item =>
+                    item.textContent.includes('Priority: low')
+                );
+                if (lowPriorityTasks.length > 0) {
+                    ol.insertBefore(li, lowPriorityTasks[0]); // Add before low-priority tasks
+                } else {
+                    ol.appendChild(li); // Add at the end
+                }
+            } else {
+                ol.appendChild(li); // Add at the end for low priority
+            }
+
+            // Clear the input field
+            taskDescription.value = '';
+
+            // Add event listener to the delete button
+            delbtn.addEventListener('click', () => {
+                ol.removeChild(li); // Remove the specific `li` element
+            });
+        });
+    </script>
+</body>
+</html>

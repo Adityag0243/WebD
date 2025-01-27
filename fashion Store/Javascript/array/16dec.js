@@ -115,18 +115,20 @@ a.pop();
 a.pop();
 
 
+
 // a.forEach(ele => console.log(ele))
 console.log(a)
 a.forEach(ele => ele*=2)   // nothing happens in original array
+
 console.log(a)
+// for(let )
 console.log("With map: ")
 let another_array = a.map(ele => ele*=2)
 console.log(a)
 console.log(another_array)
 
 console.log("Odd elements with filter:  ")
-console.log( a.filter( item => item%2==1) )
-let odd_arr = a.filter( item => item%2==1)
-
+console.log( a.filter( item => item%2==1) );
+let odd_arr = a.filter( item => item%2==1);
 
 
