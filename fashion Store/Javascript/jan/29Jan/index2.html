@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+<p id="demo"></p>
+<p id="msg"></p>
+<p id="msg1"></p>
+
+<script>
+const str = `{ "name" : Aditya"}` ;
+const str1 = `{"age" : 5}`;
+try {
+    const obj1 = JSON.parse(str1);
+    document.querySelector("#msg1").innerHTML = "1st one parsed wellll.......";
+    const obj = JSON.parse(str);
+    document.querySelector("#msg").innerHTML = "parsed wellll.......";
+}
+catch(err) {
+  document.querySelector("#msg").innerHTML = err.message;
+  document.getElementById("demo").innerHTML = err.name;
+}
+</script>
+
+</body>
+</html>
