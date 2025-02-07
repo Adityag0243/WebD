@@ -32,7 +32,37 @@
     <button class="btn btn-primary m-2" onclick="getWeather()">Get Weather</button>
     <div id="weatherResult"></div>
     <!-- <img src="./public/img/notFound.gif" alt="Error GIF" width="200px"> -->
-    <script src="/index.js"></script>
+
+
+    <script>
+        function getWeather() {
+        const city = document.getElementById("cityInput").value;
+        const apiKey = "7e751c58c801465aa8f181939250702";
+        const url = `https://api.weatherapi.com/v1/current.json?key=${apiKey}&q=${city}&aqi=no`;
+
+        fetch(url)
+            .then(response => response.json())
+            .then(data => {
+                const weatherInfo = `
+                    <p><strong>City:</strong> ${data.location.name}, ${data.location.country}</p>
+                    <p><strong>Temperature:</strong> ${data.current.temp_c}°C</p>
+                    <p><strong>Condition:</strong> ${data.current.condition.text}</p>
+                    <img src="${data.current.condition.icon}" alt="Weather icon">
+                `;
+                document.getElementById("weatherResult").innerHTML = weatherInfo;
+            })
+            .catch(error => {
+                document.getElementById("weatherResult").innerHTML = `
+                    <p style="color: red;">City not found!</p>
+                    <img src="./public/img/notFound.gif" class="img-fluid w-50" alt="Not found gif">
+                `;
+                console.error("Error fetching weather:", error);
+            });
+            
+    }
+
+    </script>
+    <!-- <script src="/index.js"></script> -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
 
 </body>
