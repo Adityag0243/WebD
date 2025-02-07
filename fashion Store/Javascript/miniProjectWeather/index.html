@@ -54,7 +54,7 @@
             .catch(error => {
                 document.getElementById("weatherResult").innerHTML = `
                     <p style="color: red;">City not found!</p>
-                    <img src="./public/img/notFound.gif" class="img-fluid w-50" alt="Not found gif">
+                    <img src="https://res.cloudinary.com/dvmwypzqt/image/upload/v1738956641/notFound_udb27c.gif" class="img-fluid w-50" alt="Not found gif">
                 `;
                 console.error("Error fetching weather:", error);
             });
