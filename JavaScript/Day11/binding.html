@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script type="text/javascript">
+        let userName  = 'sachin';
+        document.write(`${userName}`);   // sachin
+
+        document.write(`${unknownVariable}`); 
+        // will print a blank line but there will be ReferenceError: unknownVariable is not defined
+
+    </script>
+</head>
+<body>
+    
+</body>
+</html>
+
+
+<!-- 
+                            BINDING
+            Process of attaching a variable at runtime with its value is reffered as Binding
+
+            1. Data Binding  :
+                Binding the variable with value
+                    eg.    `${variableName}`
+
+            2. Style Binding : 
+                Process of attaching style related details in 'Inline' manner to an element 
+                    eg. documnet.getElementById('').style.cssAttribute = 'cssValue'
+                        documnet.getElementById('').style.cssText = 'cssKey : cssValue; cssKey : cssValue'
+
+            3. Class Binding :
+                Process of attaching the class associated with the style to an element 
+                    eg. documnet.getElementById('').className = 'userdefined|libraryClass'
+            
+
+
+            Que : What is event ?
+                Anything which happens on a webpages is reffered as 'Event'.
+                onclick  => When element is clicked by the user[button]
+                onchange => When the value of an element is changed by the user[toggle]
+                onblur   => When the element looses the focus
+                onload   => When the page is loaded
+-->

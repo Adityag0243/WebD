@@ -1,0 +1,35 @@
+<!--                                 NOTES
+
+        prompt('message,[default msg]') : string | null
+                if user enter the data and click on ok button :: 'data'
+                if user clicks on cancel button or esc button with or without data :: null
+                if user doesn't enter data but click on ok button :: '' (empty string) 
+-->
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script type="text/javascript">
+        function createButton(){
+            input = prompt('Enter the file name','new_folder');
+
+            if(input == null){
+                document.querySelector('h1').textContent = 'User has clicked on cancel button';
+            }else if( input.length == 0){
+                document.querySelector('h1').textContent = 'User has clicked ok without giving any name'
+            }else{
+                document.querySelector('h1').outerHTML =  '<h1 style = "color : green; font-family : Algeria;">Entered file name is : ' + input + "</h1>"
+            }
+
+        }
+    </script>
+</head>
+<body>
+    <button onclick="createButton()">createButton</button>
+    <h1></h1>
+</body>
+</html>

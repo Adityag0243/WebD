@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!-- <script type="text/javacript">
+        // here it won't work as document is not loaded while this head is loaded
+        function changeEffect(){
+            liElements = document.getElementsByTagName('li');
+            [...liElements].forEach( (value) => {
+                value.style.cssText = 'margin:25px; color: goldenrod';
+            })
+        }
+        changeEffect
+    </script> -->
+</head>
+<body>
+   
+        <h2>My Shopping Cart</h2>
+        <ul id="shopping_lost">
+            <li>Iphone</li>
+            <li>OnePlus</li>
+            <li>Samsung</li>
+        </ul>
+
+    
+</body>
+</html>
+<script type="text/javascript">
+    
+        liElements = document.getElementsByTagName('li');
+        console.log(liElements);
+        [...liElements].forEach( (value) => {
+            value.style.cssText = 'margin:25px; color: goldenrod';
+        })
+</script>
+
+
+<!--                NOTES
+    1. document.getElementsByTagName()     : HTMLCollection
+ -->

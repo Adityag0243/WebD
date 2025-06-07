@@ -1,0 +1,49 @@
+<!--                            NOTES
+ 
+        queryString
+            It is a combination of URL + queryParamaters(K,V)
+            To collect the queryString we use "BOM" [Browser Object Model]
+                queryString = location.search;
+            QueryString data would be recieved in the form of string.
+            string has various methods to process our input
+                a. indexOf( char )
+                b. splice( index )
+                c. subString(ind1, ind2) 
+-->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form action="">
+        <dl>
+            <dt>username</dd>
+            <dd>
+                <input type="text" name="myName">
+            </dd>
+
+            <dt>Password</dt>
+            <dd>
+                <input type="password" name="psw">
+            </dd>
+        </dl>
+        <button>Submit</button>
+    </form>
+    <!-- want toget the input data that will be passed in URL after submitting.... -->
+    <script type="text/javascript">
+        queryString = location.search;
+        console.log(queryString);
+
+        ind1 = queryString.indexOf('=');
+        ind2 = queryString.indexOf('&');
+        name_ = queryString.substring(ind1+1, ind2);
+        
+        console.log(name_)
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script type="text/javascript">
+        function validateOTP(){
+            const otpBox = document.getElementById('textOTP');
+            const msgBox = document.getElementById('msg');
+            
+            let otpVal = otpBox.value;
+            if( otpVal === '1234'){
+                msgBox.innerHTML = 'Valid OTP'.fontsize(12).fontcolor('green');
+                // 'Valid OTP'  ---> A string primitive but can levarage Object method calls
+                // in the above case all the methods will create one one element inside each other see dom
+                // <dd id="msg">
+                    // <font color="green">
+                        // <font size="12">Valid OTP</font>
+                    // </font>
+                // </dd>
+
+
+                // low performance as it will create more no of elements rendering slow....
+            }else{
+                msgBox.textContent = 'Invalid OTP';
+                msgBox.style.cssText = 'color : red; font-size:12px; font-weight: bold;';
+
+                // above css will come as inline
+                // good performance bcz of inline css
+            }
+        }
+    </script>
+</head>
+<body>
+    <dl>
+        <dt>OTP</dt>
+        <dd>
+            <input type="text" name="" id="textOTP" size="4" onblur="validateOTP()">
+        </dd>
+
+        <dd id="msg">
+
+        </dd>
+    </dl>
+</body>
+</html>

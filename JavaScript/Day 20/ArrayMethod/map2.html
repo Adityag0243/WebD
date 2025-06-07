@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <ol>
+
+    </ol>
+    <select name="" id="dropdown">
+        
+    </select>
+
+
+    <p>
+
+    </p>
+
+    <ul>
+
+    </ul>
+    
+    <script type="text/javascript">
+        arr = ["All", "Electronics","Mobile", "KidsFashion"]
+
+        arr.map((val)=>{
+            let li = document.createElement('li');
+            li.textContent = val;
+            document.querySelector('ol').appendChild(li);
+        })
+        arr.map((val)=>{
+            let opt = document.createElement('option');
+            opt.textContent = val;
+            document.getElementById('dropdown').appendChild(opt);
+        })
+        arr.map((val)=>{
+            let userInput = `<input type='checkbox' value=${val}> <label> ${val} </label><br>`;
+            document.querySelector("p").innerHTML += userInput;
+        })
+
+
+        let ul = document.querySelector("ul");
+        ul.style.listStyle = 'none';
+
+        arr.map((val)=>{
+            let li = document.createElement('li');
+            let userLink = `<a href = '${val}.html'> ${val} </a>`;
+            li.innerHTML = userLink;
+            ul.appendChild(li)
+        })
+
+
+    </script>
+</body>
+</html>
+
+
+<!-- 
+
+In JS the map() method is used o arrays to transform each elemenr and create a new
+array based on the transformation
+
+    array.map(function(elements, index, array){
+        return elements
+    })
+    What map() Does ?
+        => It does not change the origina array
+        => It returns a new array with the same number of elemets
+        => Each element is processed using a callback dunction you provide
+
+    Arrow Functions
+        array.map((ele, ind, array)=>{
+            return new_val
+        })
+
+-->

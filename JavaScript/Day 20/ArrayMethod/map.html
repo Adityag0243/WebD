@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <ol>
+
+    </ol>
+    <select name="" id="dropdown">
+        <option value="">Select Age</option>
+    </select>
+
+    
+    <script type="text/javascript">
+        arr = [
+            {
+                userName : 'Sachin',
+                age : '51'
+            },
+            {
+                userName : 'Kohli',
+                age : '38'
+            }
+        ]
+
+        arr.map((obj)=>{
+            let li = document.createElement('li');
+            li.textContent = obj.userName;
+
+            let opt = document.createElement('option');
+            opt.textContent = obj.age;
+            
+            document.querySelector('ol').appendChild(li);
+            document.getElementById('dropdown').appendChild(opt);
+        })
+    </script>
+</body>
+</html>
+
+
+<!-- 
+
+In JS the map() method is used o arrays to transform each elemenr and create a new
+array based on the transformation
+
+    array.map(function(elements, index, array){
+        return elements
+    })
+    What map() Does ?
+        => It does not change the origina array
+        => It returns a new array with the same number of elemets
+        => Each element is processed using a callback dunction you provide
+
+    Arrow Functions
+        array.map((ele, ind, array)=>{
+            return new_val
+        })
+
+-->

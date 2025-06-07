@@ -1,0 +1,47 @@
+
+<!--                                        NOTES
+
+                                innerText   v/s   textContent
+        Use textContent when:
+            We want all the text (including text from hidden elements).
+            Performance is important, especially when you don't need to worry about layer or CSS visibility.
+            We are manipulating raw text, and we don't care about white spaces or hidden elements.
+        
+        Use innerText when :
+            We want to visible text, and we are dealing with text that might have styling (like hidden elements or user interaction).
+            We need to respect CSS visibility and layout.
+            It is important that the text looks lik eot does on screen, including white screen spaces and line breaks.
+
+    Note : Observe DOM for more clarity
+-->
+
+
+<!-- incomplete code.... -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script  type="text/javascript">
+            function showSpan(){
+                ele = document.getElementById('container').innerText;
+                console.log(ele);
+            }
+            function showSpan2(){
+                ele = document.getElementById('container').textContent;
+                console.log(ele);
+            }
+    </script>
+</head>
+<body>
+    <div id="container">
+        <p>This is <span style="display: none;"  >Hidden</span> Word.</p>
+        <p>Para 2</p>
+    </div>
+
+    <button onclick="showSpan()">Button innerText</button>
+    <button onclick="showSpan2()">Button textContent</button>
+
+</body>
+</html>

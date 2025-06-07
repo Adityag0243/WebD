@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script type="text/javascript">
+        function findGender(){
+            const male = document.getElementById('maleCheck');
+            const female = document.getElementById('femaleCheck');
+            const btnBox = document.getElementById('btnContainer');
+            if(male.checked){
+                btnBox.style.display = 'block';
+            }
+            if(female.checked){
+                btnBox.style.display = 'block';
+            }
+        
+        }
+    </script>
+</head>
+<body>
+    <div>
+        <input type="checkbox" name="gender" value="Male" id="maleCheck" onchange="findGender()"> <label for="">Male</label>
+        <input type="checkbox" name="gender" value="Female" id="femaleCheck" onchange="findGender()"> <label for="">Female</label>
+    </div>
+    <div id="btnContainer" style="display: none;">
+        <button type="submit">Submit</button>
+    </div>
+</body>
+</html>

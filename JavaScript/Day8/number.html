@@ -1,0 +1,41 @@
+
+
+<!--
+                    Number Data type..
+        It follows IEEE754 format
+            53 for Actual data 11 for decimal part...exponent and mentissa
+        JS store all numbers(whether typed by user or written in code) using IEEE 754 double precision 
+        floating point format(64 bit float).
+
+        Number
+     _____________________________________________________________
+        Bits              |     Purpose
+     _____________________|_______________________________________
+        1 bit                   Sign( 0 = positive, 1 = negative)
+        11 bits                 Exponent (with bias of 1023)
+        52 bits                 Mantissa/Fractional Digits
+
+     ____________________________________________
+        Concept              |  JavaScript
+     ________________________|___________________
+        Max Safe Integer        2^53 _ 1
+        Precision above limit   lost
+        Alternative             BigInt
+
+    Since number is floating point type it leads to precision issue.
+
+    console.log( 0.1 + 02 )  // 0.3000000002
+    console.log( (0.1 + 02).toFixed(2) )  // 0.30
+    
+    
+    BigInt
+        to store any large number with precision we use BigInt 
+
+        let a = 9007199254740991
+        let b = 9007199254740992
+        let c = 9007199254740993n
+        console.log( c == c+1n) // false [No loss of precision]
+
+-->
+
+

@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script type="text/javascript">
+        let userType = prompt('Enter the user type ', `ADMIN|GUEST|RegularUser`)
+        let labelName = prompt('Enter the Label ', `EMAIL|DATE|TEXT`);
+        let type = prompt('Enter the type ', `EMAIL|DATE|TEXT`);
+        
+        let template = `
+            <h2>
+                ${userType}
+            </h2>
+            
+            <dl>
+                <dt>
+                    ${labelName} 
+                </dt>
+                <dd>
+                    <input type = ${type} >
+                </dd>
+            </dl>
+            
+            <br>
+            
+            <Button>
+                Register
+            </Button>
+        `;
+
+        document.write(template);
+
+
+
+    </script>
+</head>
+<body>
+    
+</body>
+</html>
+
+
+<!-- 
+            Template Binding
+
+-->

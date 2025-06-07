@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script type="text/javascript">
+        function add(a,b){
+            console.log(a+b)
+        }
+        add(10,20)
+        add("Sachin","Tendulkar")
+        add("Sachin",10)
+
+        let str = "Adi"
+        str[0] = 'M';
+        console.log(str) // Adi
+
+        let myData = 10;
+        myData.id = 'Roll_no' 
+        console.log(myData) //10
+
+        let obj = {id : 10}
+        console.log(obj)
+
+
+        obj.name = "Aditya";
+        consoe.log(obj) // change will be visible
+
+        obj.id = {country : "Ind", type : "cricket"};
+        console.log(obj) // change will be visible
+
+        console.log(typeof obj)
+
+    </script>
+</head>
+<body>
+    
+</body>
+</html>
+
+
+
+ 
+<!--    
+    Javascript( No Datatype )
+        It is dynamically typed
+
+
+
+    For user there is no data type concept but to process the data and for giving results 
+    BROWSER ENGINE requierd the knowledge of data types
+  
+    data types:              
+                             (range & size is fixed)
+            1. Primitive     [ Structure is defined, stack, Immutable]
+                    Number
+                    string
+                    Boolean
+                    null
+                    undefined
+                    BigInt
+                    Symbol
+            2. Non primitive [ Structure is not defined, heap, Mutable]
+                    Array
+                    Object
+                    Date
+                    function
+                    RegEx
+                    
+        Mutable : Change will be reflected in the same existing memory location
+        Immutable : Change won't be done in existing memory location
+
+
+
+-->

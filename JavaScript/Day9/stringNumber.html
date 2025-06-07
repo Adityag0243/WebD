@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script type="text/javascript">
+        console.log( parseInt('20A') + Number('10')); // 30
+        console.log( parseInt('20A') + Number('10A')); // NaN
+        console.log( parseInt('20A') + parseInt('10A')); // 30
+        console.log( parseInt('A20') + parseInt('10A')); // NaN
+
+        let age = prompt("Enter the age")
+
+        if( age == null){
+            console.log('No age entered, user entered cancel or Esc button');
+        }else if( age == ' '){
+            console.log('plz enter the right age to process u just pressed space');
+        }else if( isNaN(age) ){
+            console.log('Plz enter the age correctly in numeric form');
+        }else{
+            console.log("Age is : " +  age);
+        }
+
+
+        let salary = prompt("Enter you salary") 
+
+        if( salary == null){
+            console.log('please enter your salary');
+        }else if( Number.isNaN(parseInt(salary))){
+            console.log('Very chalak bro... enter your saary... not random things');
+        }else{
+            console.log("Salary is : " +  parseInt(salary));
+        }
+
+
+
+
+
+    </script>
+</head>
+<body>
+    
+</body>
+</html>
+
+
+<!-- 
+    
+    To convert the data from String format to number type we have 3 Mechanism
+        a. parseInt()
+        b. parseFloat()
+
+        c. Number()
+
+
+
+        Number(input)  : number / NaN
+            It expects the data to strictly in number type only('number')
+            If any special symbols are part of data the it would throw NaN
+
+
+        parseInt(input) : number / NaN
+            It also expects the input in string type
+            It returns the numbers till it encounter the very first special symbol
+            if the very first symbol itself is special character then it would throw NaN
+
+
+
+        isNaN(input) : Boolean
+            convert the input into number type using Number()
+            If it is NaN it returns 'true' otherwise 'false'
+
+        Number.isNaN(input) : Boolean
+            It doesn't do any conversion
+            on the input it checks whether it is NaN : true
+            otherwise false
+
+
+
+
+
+-->

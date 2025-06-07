@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="main" class="box">
+        <p class="box">p1</p>
+        <p class="box">p1</p>
+    </div>
+</body>
+</html>
+
+<script type="text/javascript">
+    elements = document.getElementsByClassName("box");
+    
+    console.log(typeof elements)
+    console.log(elements)
+
+    for(i = 0; i< elements.length; i++){
+        console.log(elements[i])
+        elements[i].style.color = 'green';
+    }
+
+    // elements --> Object (HTML Collection not an array)
+
+    // forEach used only on the array
+    // convert HTMLCollection to Array
+    console.log( Array.from(elements) )
+
+    Array.from(elements).forEach( (value,index,arr) => {
+        console.log(value)
+        console.log(index)
+        console.log(arr)
+    })
+    dataProcessing = (value) => {
+        value.style.cssText = 'background-color : red; color:bblack; margin:25px'
+    }
+
+    Array.from(elements).forEach( 
+        dataProcessing
+    )
+
+    Array.from(elements).forEach( (val) => {
+        val.style.cssText = 'background-color : red; color:bblack; margin:50px';
+    })
+
+</script>
+
+<!--                NOTES
+    1. document.getElementsByClassName()  : HTMLCollection[]
+
+    How to convert HTMLCollection to Array ?
+    Ans.  array = Array.from(HTMLCollection)
+
+    working with the iterator called "forEach"
+        -> It can be used only on the Array Object
+
+        callbackfunction() =>{
+            // val
+            // index
+            // arr
+        };
+    
+    forEach( callbackfunction)
+        
+
+ -->

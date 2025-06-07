@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div class="box">
+        <p class="box" > Child1 of .box div 1st</p>
+        <p class="box" > Child2 of .box div 1st</p>
+    </div>
+    <div class="box">
+        <p class="box" > Child1  of .box div 2nd</p>
+        <p class="box" > Child2 of .box div 2nd</p>
+    </div>
+    <div class="box1">
+        <p class="box1" > Child1  of .box div 2nd</p>
+        <p class="box1" > Child2 of .box div 2nd</p>
+    </div>
+    <div class="box1">
+        <p class="box1" > Child1  of .box div 2nd</p>
+        <p class="box1" > Child2 of .box div 2nd</p>
+    </div>
+</body>
+</html>
+
+<script>
+    singleFirstElement = document.querySelector('.box');
+    singleFirstElement.style.cssText= 'border: 1px dotted red';
+
+    elements = document.querySelectorAll('.box1');
+    // elements.style.cssText = 'border : 1px dotted black';// won't work as it is not single element it is Nodelist
+
+    elements.forEach( val => {
+        val.style.cssText = 'border : 1px dotted black';
+    });
+</script>
+
+
+<!--                NOTES
+    Instead of remembering all these methods, we go for a method called to target the elements in a HTML Page
+
+            querySelector(cssSelector)     : Element  (Very first element with that particular css selector only)
+            querySelector(cssSelector)     : NodeList
+
+    FAQ :  Why do we need so many method to target HTML pAge using javascript, when we can target directly
+           with the single method called 'querySelectorXXX()'
+    Ans.  Older version of js added methods like
+                getElementById(), getElementByClassName(), getElementByTagName()
+          As css become popular, to give the direct suppport of acccessing the elements using CSS methods
+          like querySelector() and querySelectorAll() were added.
+ -->

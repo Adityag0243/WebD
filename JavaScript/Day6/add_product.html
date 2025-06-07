@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-SgOJa3DmI69IUzQ2PVdRZhwQ+dy64/BUtbMJw1MZ8t5HZApcHrRKUc4W0kG879m7" crossorigin="anonymous">
+    
+    <script src="./add_product.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/js/bootstrap.bundle.min.js" integrity="sha384-k6d4wzSIapyDyv1kpU366/PK5hCdSbCRGRCMv+eplOQJWyd1fbcAu9OCUj5zNLiq" crossorigin="anonymous"></script>
+</head>
+<body>
+    <div id="btnContainer">     
+        <button type="button" class="btn btn-primary p-2 m-3" data-bs-toggle="modal" data-bs-target="#addProductFormModal" > Add Product </button>
+    </div>
+
+    <div class="m-3" id="displayContainer" style="width: 300px; display: none;"  >
+        <div class="h3 bg-dark text-light p-1">Product Details</div>
+        
+        <dl id="summaryDl" class="mt-1">
+            
+            <dt id="pnameDt" >Name</dt>
+            <dd id="pnameDd">Kuchh bhi</dd>
+
+            <dt id="priceDt">Price</dt>
+            <dd id="priceDd">Kuchh bhi</dd>
+
+            <dt id="shipDt" >Shipped To</dt>
+            <dd id="shipDd">Kuchh bhi</dd>
+
+            <dt id="availableDt">Stock Available</dt>
+            <dd id="availableDd">Kuchh bhi</dd>
+
+            <button class="btn btn-warning" onclick="editProduct()"  data-bs-toggle="modal" data-bs-target="#addProductFormModal" > <i class="bi bi-pen-fill"></i> Edit</button>
+
+        </dl>
+
+    </div>
+
+
+    <div class="modal fade" id="addProductFormModal" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog "> 
+
+          <div class="modal-content">
+            <div class="modal-header">
+                <h3 class="modal-title" id="modal-header">Add Product</h3>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+      
+            <div class="modal-body">
+                
+                <form>
+                    <div class="mb-3">
+                      <label class="form-label" >Name</label>
+                      <input type="text" class="form-control" id="lblproductName">
+                    </div>
+                    <div class="mb-3">
+                      <label class="form-label">Price</label>
+                      <input type="number" class="form-control" id="lblprice">
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">Shiped To</label>
+                        <select class="form-select" id="lstCities">
+                            <option selected>Select City</option>
+                            <option value="Bengaluru">Bengaluru</option>
+                            <option value="Mysore">Mysore</option>
+                            <option value="Chennai">Chennai</option>
+                        </select>
+                    </div>
+
+                    <label class="form-label">Stock</label>
+                    <div class="mb-3 form-check form-switch">
+                        <input class="form-check-input" type="checkbox" role="switch" id="switchCheckDefault">
+                        <label class="form-check-label" for="switchCheckDefault">Available</label>
+                    </div>
+
+                </form>
+                
+            </div>
+            <div class="modal-footer ">
+                <button type="button" class="btn btn-primary" id="registerBtn" data-bs-dismiss="modal" onclick="registerProduct()">Register</button>
+                <button type="button" class="btn btn-danger">Cancel</button>
+            </div>
+            
+        </div>
+    </div>
+</body>
+</html>

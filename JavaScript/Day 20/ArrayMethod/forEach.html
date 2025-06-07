@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <ol>
+
+    </ol>
+    <select name="" id="dropdown">
+        
+    </select>
+
+
+    <script type="text/javascript">
+        let arr = ["All", "Electronics", "Mobile", "KidsFashion"]
+
+        arr.forEach((ele, ind, arr)=>{
+            console.log(ele)
+        })
+        console.log(arr);
+        
+        arr.forEach((ele, ind, arr)=>{
+            arr[ind] = ele.toUpperCase();
+        })
+        console.log(arr);
+
+        arr.forEach((val)=>{
+            let li = document.createElement('li');
+            li.textContent = val;
+            document.querySelector('ol').appendChild(li);
+        })
+
+        arr.forEach((val)=>{
+            let opt = document.createElement('option');
+            opt.textContent = val;
+            document.getElementById('dropdown').appendChild(opt);
+        })
+    </script>
+    
+</body>
+</html>
+
+
+<!-- 
+    forEach() in JavaScript
+     The forEach() method in JS is used to iterate over each element in an array and perform an operation
+     without returning a new array
+
+     Syntax : 
+        array.forEach( function(ele,ind,arr){
+            console.log(ele)
+        })
+
+
+-->

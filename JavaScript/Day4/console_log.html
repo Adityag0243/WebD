@@ -1,0 +1,40 @@
+
+<!-- Watch console on browser for this.... -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script  type="text/javascript">
+        
+  
+        function deleteRecord(){
+
+            console.log('User has clicked delete button')
+            flag = confirm('Are u sure to delete the record');
+
+            if(flag){
+                console.log('User has clicked ok button')
+                document.querySelector('h2').innerText = 'Record deleted successfully' 
+                console.log('Deleted Successfully..')                
+            }else{
+                console.warn('User has clicked cancel button')
+                document.querySelector('p').innerText = 'You have pressed CANCEL button'
+                console.error('Operation didnt work as expected')
+            }
+
+        }       
+  
+    </script>
+</head>
+<body>
+    <button onclick="deleteRecord()">inner HTML Button</button>
+
+    <!-- if user agree to delete put some content in h2 -->
+    <h2></h2>   
+
+    <!-- other wise put here -->
+    <p></p>
+</body>
+</html>

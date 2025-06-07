@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script type="text/javascript">
+        let num = 45000
+        console.log(num.toString());
+
+        let options = {
+            'style' : 'currency',
+            'currency' : 'INR'
+        }
+        console.log(num.toLocaleString('en-IN',options));
+    </script>
+</head>
+<body>
+    
+</body>
+</html>
+
+
+<!-- 
+    num -- number    
+
+    num.toString()
+    num.toLocaleString( locale-string, options)
+    where option is a JSON obj.....
+    let options = {
+        'style'    : 'currency',
+        'currency' : 'INR'
+    }
+
+
+    US   -- en-US    USD
+
+-->

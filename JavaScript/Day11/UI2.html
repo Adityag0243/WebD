@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4Q6Gf2aSP4eDXB8Miphtr37CMZZQ5oXLH2yaXMJ2w8e2ZtHTl7GptT4jmndRuHDT" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/js/bootstrap.bundle.min.js" integrity="sha384-j1CDi7MgGQ12Z7Qab0qlWQ/Qqz24Gc6BM0thvEMVjHnfYGF0rmFCozFSxQBxwHKO" crossorigin="anonymous"></script>
+
+
+    <script type="text/javascript">
+        function darktheme(){
+            const box = document.getElementById('box');
+            const radio = document.getElementById('switchCheckDefault');
+            const btn = document.getElementById('btn');
+
+            if(radio.checked){
+                box.style.cssText = 'color : white; background-color: black; '
+                // btn.style.cssText = 'color : black; background-color: white; '
+                btn.className = 'btn w-100 btn-light'
+
+            }else{
+                box.style.cssText = 'color : black; background-color: white; '
+                // btn.style.cssText = 'color : white; background-color: black
+                btn.className = 'btn w-100 btn-dark'
+            }
+        }
+    </script>
+</head>
+<body>
+    <div class="container m-2 p-2 w-25" id="box">
+        <dl>
+            <div class="form-check form-switch">
+                <input class="form-check-input" type="checkbox" role="switch" id="switchCheckDefault" onchange="darktheme()">
+                <label class="form-check-label" for="switchCheckDefault">Dark Theme</label>
+            </div>
+
+            <div class="h1">User Login</div>
+            <dt>
+                User Name
+            </dt>
+            <dd>
+                <input class="form-control" type="text" name="" id="txtName">
+            </dd>
+            <dt>
+                Password
+            </dt>
+            <dd>
+                <input class="form-control" type="password" name="" id="txtPassword">
+            </dd>
+            <button class="btn w-100 btn-dark" id="btn">Login</button>
+        </dl>
+
+    </div>
+</body>
+</html>

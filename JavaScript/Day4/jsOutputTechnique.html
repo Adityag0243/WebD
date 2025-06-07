@@ -1,0 +1,68 @@
+<!--                                    NOTES
+    JavaScript Output Technique :
+        a. alert()
+        b. confirm()
+        c. document.write() | document.writeln()
+        d. innerHTML | outerHTML
+        e. innerText
+        f. textContent
+        g. console.XXXXX()   [ log(), warn(), error(),info(), debug() ]
+
+
+        1. alert(msg):  void
+                It has a ok button
+                It returns undefined when the user clicks ok button
+            Limitations:
+                No styling can be added to the msg
+                No cancel button, so to some out of the actions the user should click 'esc' button
+
+        2. confirm() : boolean
+                It has ok and cancel button
+                It returns true if ok is clicked otherwise it returns false.
+                go to confirm_code.html : 
+            Limitation:
+                No styling can be added to the msg
+        3. document.write()
+                The whole existing page(including the button, heading, etc.) gets wiped out.
+                Only the content insdie doxument.write(....) is shown.
+                Why ? Bcz once the page finishes loading, document.write() acts like:
+                    "Let me rebuild the entire document from scratch now!"
+                It is used for testing purpose nowadays only..
+        
+  -->
+
+
+  <!DOCTYPE html>
+  <html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script  type="text/javascript">
+        function addContent(){
+            document.write('<h3>Welcome to the world of javascript </h3>');
+            
+            document.write('JavaScript is cool stuff1.');
+            document.write('JavaScript is cool stuff2. ');  
+
+            document.writeln('JavaScript is cool stuff3.');   // write ln has no effect
+            document.write('JavaScript is <br> cool stuff4.'); // <br> will work
+
+            document.write('<p>JavaScript is cool stuff.</p>');
+        }
+
+        function addContent2(){
+            h1 = document.createElement('h1');
+            h1.textContent = 'Welcome to the world of javascript';
+            document.body.appendChild(h1);
+        }
+
+        
+    </script>
+  </head>
+  <body>
+    <h1>Hello User</h1>
+    <button type="button" onclick="addContent()">Add Content</button>
+    <button type="button" onclick="addContent2()">Add Content2</button>
+  </body>
+  </html>

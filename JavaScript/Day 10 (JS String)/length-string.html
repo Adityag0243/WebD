@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script type="text/javascript">
+        function lenCalculate(){
+            const userBox = document.getElementById('txtUser');
+            const msgBox = document.getElementById('msg');
+            console.log(typeof userBox.value)
+            console.log(userBox.value.length)
+            if( userBox.value.length == 0){
+                msgBox.style.display = 'block';
+                msgBox.innerHTML = `Name Required`.fontcolor('red');
+            }
+            else if( userBox.value.length < 4){
+                msgBox.style.display = 'block';
+                msgBox.textContent = `Length is too short`
+            }else{
+                msgBox.style.display = 'none';
+            }
+        }
+    </script>
+</head>
+<body>
+    <dl>
+        <dt>Username</dt>
+        <dd>
+            <input type="text" name="" id="txtUser" onkeyup="lenCalculate()">
+            <div style="display: none; color: red;" id="msg"></div>
+        </dd>
+    </dl>
+</body>
+</html>

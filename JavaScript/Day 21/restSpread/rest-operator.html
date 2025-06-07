@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script type="text/javascript">
+        function add(...x){
+            const[a,b,c, ...otherData] = x;
+            console.log('Type of ...x', typeof x)
+            console.log(a,b,c);
+            console.log(otherData);
+        }
+        add(); // tricky
+        add(10);
+        add(10,20);
+        add(10,20,30);
+        add(10,20,30,40);
+        add(10,20,30,40,50);
+        add(10,20,30,40,50,60);
+
+
+        function printDetails( user ){
+        
+            const{userName, age, ...otherDetails}  = user;
+            console.log(userName);
+            console.log(age);
+            console.log(otherDetails);
+            console.log('type of x i.e parameter', typeof otherDetails);
+        }
+        let user = {
+            userName : 'Kohli',
+            age : 38,
+            isMarried : true,
+            gender : 'M'
+        }
+        printDetails(user)
+    </script>
+    
+</body>
+</html>
+
+<!-- 
+Rest Operatoe in Javascript
+Que: What is the Rest Operator(...) ?
+Ans: The rest operator is a syntax in JS written as three dots ... used to collect multiple elements into
+a single array.
+    
+    It's like saying : "Gather all the remaining elemnts into the varaible."
+
+
+
+-->

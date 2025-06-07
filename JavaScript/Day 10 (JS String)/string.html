@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script type="text/javascript">
+        
+        let str1 = 'sachin';
+        let str2 = "sachin";
+        let str3 = `sachin`;  // used by developer for template binding
+
+        console.log( typeof str1, typeof str2, typeof str3);
+        console.log(str1,str2,str3);
+
+
+        let str4 = new String(str1);
+        console.log("Primitive type: ", str1);
+        console.log("Object    type: ", str4);
+
+        console.log(str1.toUpperCase());   // str1 is primitive then why this method works ?? and immutable as well
+
+        str1.country = 'IND';    // support not avaialble as it is primitive  property not work methods will works
+        console.log(str1);   // 'sachin'  --- in lowercase
+        console.log(str1.country);   // undefined  (Why ?? refer Notes)
+
+        console.log(str1 == str4);   // true
+        console.log(str1 === str4);  // false
+
+
+
+        console.log("String 4 length    (Object type) : ",str4.length);  // false
+        console.log("String 1 length (Primitive type) : ",str1.length);  // false
+        
+        
+        
+
+
+        
+    </script>
+</head>
+<body>
+    
+</body>
+</html>
+
+
+<!--                            NOTES
+
+        // javascript by default use single quote to store strings
+        
+        Memory : stack
+        As it is primitive type, immutable, defined structure
+
+        let str1 = 'sachin'
+        console.log(str1.toUpperCase());  // SACHIN
+
+        str1 -- primitive  (i.e. It must not have any property or method they why it works ?)
+
+            For user it is a primitive data type but internally it uses Object to facilitate the user 
+            with methods and property
+            But we won't be allowed to create any new method or property 
+
+            for JS Engine it will be like let temp = new String(str1)
+            so we are doing str1.methodCall() internally this call is from temp temp.methodCall()
+            as temp is Object not primitive it is mutable as well
+
+        str1.country = 'IND';
+        console.log(str1.country);   // undefined 
+
+            Object facility is provided via JS Engine it can't be levarage by User 
+
+
+        String Formatting
+            Method               Return type
+            1. bold()           : string
+            2. italic()         : string
+            3. fontsize(number) : string
+            4. toUpperCase()    : string
+            5. fontColor(string): string
+
+        What is benefit of return type why not void ?
+            So that we can levarage method chaning
+            stringValue.bold().italic().fontsize(12).fontColor('red')
+
+
+
+
+-->

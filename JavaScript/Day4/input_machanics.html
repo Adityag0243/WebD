@@ -1,0 +1,21 @@
+<!--                                          NOTES
+    Javascript input mechanics
+        1. prompt()
+        2. queryString
+        3. formString
+
+            prompt('message,[default msg]') : string | null
+                if user enter the data and click on ok button :: 'data'
+                if user clicks on cancel button or esc button with or without data :: null
+                if user doesn't enter data but click on ok button :: '' (empty string) 
+
+            queryString
+                It is a combination of URL + queryParamaters(K,V)
+                To collect the queryString we use "BOM" [Browser Object Model]
+                    queryString = location.search;
+                QueryString data would be recieved in the form of string.
+                string has various methods to process our input
+                    a. indexOf( char )
+                    b. slice( index )
+                    c. substring(ind1, ind2)
+  -->

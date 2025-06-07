@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script type="text/javascript">
+        
+        function doTask(){
+            let userName = prompt("Enter the User Name");
+            let userAge = prompt("Enter the User Age");
+
+            document.write("Username is: " + userName + " UserAge is : " + userAge + "<br>");
+            document.write('Username is: ' + userName + ' UserAge is : ' + userAge + '<br>');
+            document.write(`Username is: ${userName}  UserAge is :  ${userAge} Status : ${ userAge >= 18 ? 'Major' : 'Minor'}`); 
+            // Expression binding using Template binding
+        }
+
+        // doTask();
+
+        function doOneMoreTask(msg){
+            return `Hello ${msg}`;
+        }
+
+        // doOneMoreTask( document.write(`Greeting for MSD : ${doOneMoreTask('Dhoni')}`) );
+
+
+        function printByHighlighting(strings, value){
+            console.log('Call is made.... ');
+            document.write( `${strings[0]} <b>${value}</b> carefully`);
+            return `${strings[0]} <b>${value}</b> carefully`;
+        }
+
+        let sub1 = 'JavaScript';
+        printByHighlighting`Learn ${sub1} from Respected Nitin Sir`;
+
+        
+
+
+        
+    </script>
+</head>
+<body>
+    
+</body>
+</html>
+
+
+<!--                            NOTES
+
+        function printByHighlighting(strings, value){
+            console.log('Call is made.... ');
+            document.write( `${strings[0]} <b>${value}</b> carefully`);
+            return `${strings[0]} <b>${value}</b> carefully`;
+        }
+
+        let sub1 = 'JavaScript';
+        printByHighlighting`Learn ${sub1} from Respected Nitin Sir`;
+
+
+
+        By this way we have more command Over the specific data 
+        we can change modify according to our need 
+        It can be achieved by other mean may be by putting all these things in array 
+        but that will be bit complicated here JS itself giving this facility 
+
+
+
+
+-->

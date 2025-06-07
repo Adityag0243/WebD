@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script type="text/javascript">
+        function maxLen(){
+            const commentBox = document.getElementById('txtComment');
+            const msgBox = document.getElementById('countRemains');
+
+            let len = commentBox.value.length;
+
+            if(len <= 20){
+                console.log("I am here .. ")
+                msgBox.innerHTML = 20-len + ` no of character left`.bold()
+            }else if(len == 20){
+                let span1 = document.createElement('span');
+                span1.textContent = `typing is not allowed`.fontcolor('red')
+                commentBox.appendChild(span1)
+            }
+            else{
+                msgBox.textContent = ''
+                commentBox.disabled = true
+            }
+        }
+    </script>
+</head>
+<body>
+    <fieldset style="width: 250px;">
+        <legend>Your Comments</legend>
+        <samp>Note : Max 20 Characters</samp>
+        <br>
+        <br>
+        <textarea id="txtComment" onkeyup="maxLen()" maxlength="20" cols="40" rows="4">
+
+        </textarea>
+        <div id="countRemains">
+
+        </div>
+    </fieldset>
+</body>
+</html>

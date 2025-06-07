@@ -1,0 +1,80 @@
+
+<!--                                        NOTES
+
+                                 innerHTML   v/s   outerHTML
+        innerHTML : it will add the elment as a chile to the targeted container/element.
+        outerHTML : it will replace the element with the newly provided one to the targeted container/element
+
+    Note : Observe DOM for more clarity
+-->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script  type="text/javascript">
+        function deleteRecord(){
+            flag = confirm('Are u sure to delete the record');
+
+            if(flag){
+                document.querySelector('h2').innerHTML = '<h3 style=" color : green">Record deleted successfully</h3> ' 
+                // but h3 comes inside h2 there is no meaning of using h2 then inside h3 we an use outer HTML or we can use
+                // innerText..
+                
+            }else{
+                document.querySelector('p').innerHTML = '<h2 style = " color:red ">You have pressed CANCEL button</h2>'
+            }
+
+        }       
+
+        function deleteRecord2(){
+            flag = confirm('Are u sure to delete the record');
+
+            if(flag){
+                document.querySelector('h2').outerHTML = '<h3 style=" color : green">Record deleted successfully</h3> ' 
+                // now h2 won't be there h2 replaced by h3
+                // if we use outerText it will remove the h2 itself...
+
+            }else{
+                document.querySelector('p').outerHTML = '<h2 style = " color:red ">You have pressed CANCEL button</h2>'
+            }
+
+        }     
+        function deleteRecord3(){
+            flag = confirm('Are u sure to delete the record');
+
+            if(flag){
+                document.querySelector('h2').innerText = 'Record deleted successfully'                 
+            }else{
+                document.querySelector('p').innerText = 'You have pressed CANCEL button'
+            }
+
+        }       
+
+        function deleteRecord4(){
+            flag = confirm('Are u sure to delete the record');
+
+            if(flag){
+                document.querySelector('h2').textContent = 'Record deleted successfully' 
+            }else{
+                document.querySelector('p').textContent = 'You have pressed CANCEL button'
+            }
+
+        }     
+    </script>
+</head>
+<body>
+    <button onclick="deleteRecord()">inner HTML Button</button>
+    <button onclick="deleteRecord2()">outer HTML Button</button>
+    <button onclick="deleteRecord3()">outer HTML Button</button>
+    <button onclick="deleteRecord4()">outer HTML Button</button>
+
+    <!-- if user agree to delete put some content in h2 -->
+    <h2></h2>   
+
+    <!-- other wise put here -->
+    <p></p>
+</body>
+</html>

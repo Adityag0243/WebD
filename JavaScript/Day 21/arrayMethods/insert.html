@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <script type="text/javascript">
+        let teamNames = ['CSK','Punjab']
+        console.log(teamNames);
+        
+        teamNames.push('LSG','KKR','SRH')
+        console.log("Doing teamNames.push('LSG','KKR','SRH')");
+        
+        console.log(teamNames);
+
+        console.log("Doing teamNames.unshift('DC','RCB')");
+        teamNames.unshift('DC','RCB')
+        console.log(teamNames);
+        
+        console.log("Doing teamNames.splice(3,0,'MI','GT','RR')");
+        teamNames.splice(3,0,'MI','GT','RR')
+        console.log(teamNames);
+
+        console.log('')
+        console.log('***************************************************************************************');
+        console.log('')
+        console.log("Doing teamNames.pop()");
+        teamNames.pop();
+        console.log(teamNames);
+
+        console.log("Doing teamNames.shift(1)");
+        teamNames.shift(1);
+        console.log(teamNames);
+
+        
+        console.log("Doing teamNames.splice(3,1)");
+        teamNames.splice(3,1)
+        console.log(teamNames);
+        
+
+        let pname = ['sachin', 'tendulkar']
+        let team = ['IND', 'MI']
+        let combinedArr = pname.concat(team)
+        console.log(pname);
+        console.log(combinedArr);
+         
+    </script>
+    
+</body>
+</html>
+
+<!-- 
+
+Array methods fro Inserting the elements
+=============================================
+Insert at front_end, real_end, at specified position
+(Change reflect on the same array)
+Array.push( ...items ) : number(return type)   It would insert the element at the end of the array
+Array.unshift( ...items ) : number(return type)   It would insert the element at the beginning of the array
+Array.splice( startInd, deleteCount, ...items ) : string[]
+                        deleteCount : delete that much no of elements from ind = startInd
+                        if it is zero it will add all the items and shift the other elements from the startInd
+
+
+(Change won't reflect in original array)
+array.concat(array) :  string[]  (return type array)
+let combinedArray  = array1.concat( array2 )
+
+
+-->

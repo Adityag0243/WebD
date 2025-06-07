@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script type="text/javascript">
+        let obj = {id:10, userName : "Aditya", isMarried : false}
+        console.log(obj)
+
+        let jsonObj = JSON.stringify(obj)
+        console.log(jsonObj)
+
+        let player = '{"jerseyNumber" : 18, "playerName" : "Virat Kohli", "isMarried" : true}'
+        console.log(player)
+        
+        let playerJsObj = JSON.parse(player)
+        console.log(playerJsObj) 
+    </script>
+</head>
+<body>
+    
+</body>
+</html>
+
+<!-- 
+
+                                JS Object v/s JSON
+    ==============================================================================================
+
+    Javascript object = { K : V}
+                        convert javascript object to JSON : JSON.stringify()
+    
+    JSON Object = { 'K' : V}
+                        convert string representation JSON to javascript object : JSON.parse()
+
+
+-->

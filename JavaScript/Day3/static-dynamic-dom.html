@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div class="container">
+        <p class="item">ITEM 1 </p>
+        <p class="item">ITEM 2 </p>
+    </div>
+    <button onclick="addItem()">Add item</button>
+</body>
+</html>
+<script>
+
+
+    queryElements = document.querySelectorAll('.item');
+    getElements= document.getElementsByClassName('item');
+
+    function addItem(){
+        divElement = document.querySelector('.container');
+        console.log(divElement);
+
+        pElement = document.createElement('p');
+        pElement.textContent = 'Item 3';
+        pElement.className = 'item';
+        divElement.append(pElement);
+
+        console.log("Length of the item class by queryselectorAll       : ", queryElements.length);
+        console.log("Length of the item class by getElementsbyClassName : ", getElements.length);//change reflect
+    }
+
+
+</script>
+
+
+<!--                                       NOTES
+    
+            querySelector | querySelectorAll  | getElementById ===> works only for StaticDom
+
+            getElementsByClassName | getElementsByTageName | getElementsByName  ==> Dynamic Dom
+
+    JavaScript Output Technique :
+        a. alert()
+        b. confirm()
+        c. document.write() | document.writeln()
+        d. innerHTML | outerHTML
+        e. innerText
+        f. textContent
+        g. console.XXXXX()   [ log(), warn(), error(),info(), debug() ]
+
+
+        1. alert(msg):  void
+                It has a ok button
+                It returns undefined when the user clicks ok button
+            Limitations:
+                No styling can be added to the msg
+                No cancel button, so to some out of the actions the user should click 'esc' button
+
+        2. confirm() : boolean
+                It has ok and cancel button
+                It returns true if ok is clicked otherwise it returns false.
+                go to confirm_code.html : 
+            Limitation:
+                No styling can be added to the msg
+        
+-->
