@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../node_modules/bootstrap/dist/css/bootstrap.css">
+
+
+    <script type="text/javascript">
+        
+        
+        function loadImg(){
+            const prg = document.querySelector('#progressBar');
+            const prgcent = document.querySelector('.progressMark');
+            let i = 0;
+        
+            const interval = setInterval(() => {
+                if (i <= 100) {
+                    prg.value = i;
+                    prgcent.textContent = `${i}% progress`;
+                    i++;
+                } else {
+                    clearInterval(interval);
+                    
+                    document.querySelector('#img').src = "./img.png";
+                    document.querySelector('#img').style.display = 'block';
+                    prg.style.display = 'none';
+                    prgcent.style.display = 'none';
+                }
+            }, 50);
+            
+        }
+
+        function loadData(){
+            document.querySelector('#progressBar').style.display = 'block';
+            document.querySelector('.btn-container').style.display = 'none';
+            loadImg();
+        }
+
+        
+    </script>
+
+</head>
+<body class="d-flex justify-content-center align-items-center" style="height: 100vh;">
+
+    <div class="text-center">
+
+        <div class="btn-container">
+            <button class="btn btn-primary" onclick="loadData()">Load Image</button>
+        </div>
+
+        <progress min="1" max="100" value="3" id="progressBar" style="display: none;">
+        </progress>
+        <p class="progressMark"></p>
+        
+
+        <img alt="Some Image" id="img" style="display: none;">
+
+        
+    </div>
+
+
+
+</body>
+</html>

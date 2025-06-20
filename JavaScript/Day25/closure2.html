@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script type="text/javascript">
+        function x(){
+            
+            for( var i = 1; i<=5; i++)   // var i is in global scope
+            {
+                setTimeout(function(){   
+                    console.log(i);   // will print 6 only
+                }, i*1000)
+            }
+            for( let i = 1; i<=5; i++)   // here i is in local scope
+            {
+                setTimeout(function(){   
+                    console.log(i);  // will print 1,2,3,4,5
+                }, i*1000)
+            }
+
+        }
+
+        x()
+
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../node_modules/bootstrap/dist/css/bootstrap.css">
+</head>
+<body class="container-fluid">
+    <button class="btn btn-danger">Cancel Evenet</button>
+
+    <h1 class="mt-3">
+
+    </h1>
+    <script>
+        function printMsg1(name){
+            document.querySelector('h1').textContent = `Hiii ${name}`
+        }
+        function printMsg2(name){
+            document.querySelector('h1').textContent = `Helllo ${name}`
+        }
+        function printMsg3(name){
+            document.querySelector('h1').textContent = `Byee ${name}`
+        }
+        printMsg1("NITIN")
+        printMsg2("NITIN")  // we won't be able to see the dom changed by process 1 and 2 because it is so fast
+        printMsg3("NITIN")  // we have no control over those things we want to control that
+        // controlling when anything should come in process from that memory.... that is debouncing...
+
+        setTimeout(printMsg1, 3000, "NITIN");
+        let id = setTimeout(printMsg2, 6000,"NITIN");
+        setTimeout(printMsg3, 9000, "NITIN");
+
+        document.querySelector('button').addEventListener('click', function(){
+            clearTimeout(id); // if before entering in process user click this printMsg2 won't enter call stack
+        })
+
+    </script>
+</body>
+</html>
+
+
+<!-- 
+
+What us Debouncing: 
+     Bouncing is technique in electronic device where function is released immediately into
+     memory without ocking.
+     Debouncing is a technique where function would be locked in a memory for a specific time | duration 
+     so that we can allow other task[api] to perform in process
+
+How to control bouncing
+     setTimeout()
+     clearTimeout()
+
+
+-->

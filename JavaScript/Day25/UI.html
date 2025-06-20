@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../node_modules/bootstrap/dist/css/bootstrap.css">
+</head>
+<body class="container-fluid">
+    <button class="btn btn-success" id="start">Start</button>
+    <button class="btn btn-danger" id="stop">Stop</button>
+
+    <h1 class="mt-3">
+
+    </h1>
+
+    <script type="text/javascript">
+        const start = document.querySelector('#start');
+        const stop = document.querySelector('#stop');
+
+        let now = new Date();
+        function x(){
+            var id = setInterval(function(){
+                document.querySelector('h1').textContent =  `${now.toLocaleTimeString()}`;
+            }, 1000);
+        }
+
+        start.addEventListener('click',x);
+
+        stop.addEventListener('click',function(){
+            clearInterval(id)
+            document.querySelector('h1').textContent =  `${now.getHours()} : ${now.getMinutes()} : ${now.getSeconds()}`;
+        })
+    </script>
+    
+</body>
+</html>

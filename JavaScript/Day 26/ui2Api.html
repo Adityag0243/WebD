@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../node_modules/bootstrap/dist/css/bootstrap.css">
+    <link rel="stylesheet" href="../node_modules/bootstrap-icons/font/bootstrap-icons.css">
+
+    <script type="text/javascript">
+        const api = `https://fake-json-api.mock.beeceptor.com/users`;
+        
+        async function dataLoad(){
+
+           try{
+                document.querySelector('.table').style.display = 'block';
+
+                const response = await fetch(api);
+
+                const data = await response.json();
+
+                data.sort((a, b) => a.name.toLowerCase().localeCompare(b.name.toLowerCase()));
+
+                console.log(data);
+
+                
+                const tbody = document.querySelector('tbody');
+                
+
+                for( let i =0; i<data.length; i++ ){
+                
+                    const row = document.createElement('tr');
+                    const th = document.createElement('th');
+                    th.scope = 'row';
+                    th.textContent = i+1;
+                    
+                    row.appendChild(th);
+
+                    
+                    const tdName = document.createElement('td');
+                    tdName.textContent = data[i].name;
+                    row.appendChild(tdName);
+
+                    const tdEmail = document.createElement('td');
+                    tdEmail.textContent = data[i].email;
+                    row.appendChild(tdEmail);
+
+                    const tdCountry = document.createElement('td');
+                    tdCountry.textContent = data[i].country;
+                    row.appendChild(tdCountry);
+
+                    const tdImg = document.createElement('td');
+                    const img = document.createElement('img');
+                    img.src = data[i].photo;
+                    img.width = 75
+                    tdImg.appendChild(img);
+                    row.appendChild(tdImg);
+
+                    tbody.appendChild(row);
+
+                }
+           }catch(error){
+                console.log(error ," AA gaaya");
+                
+           }
+        }
+
+        
+    </script>
+</head>
+<body>
+    <button class="btn btn-primary" onclick="dataLoad()"> LOAD API DATA</button>
+
+    <table class="table" style="display: none;">
+        <thead>
+            <tr>
+                <th scope="col">#</th>
+                <th scope="col">Name</th>
+                <th scope="col">email</th>
+                <th scope="col">country</th>
+                <th scope="col">photo</th>
+            </tr>
+        </thead>
+        <tbody>
+            
+           
+            
+        </tbody>
+    </table>
+    
+</body>
+</html>

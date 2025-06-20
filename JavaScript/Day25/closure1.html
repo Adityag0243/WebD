@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script type="text/javascript">
+        function x(){
+            var i = 10;
+            console.log("**********************")
+
+            setTimeout(function(){   // this will come under closure so it will remember i as well....
+                console.log(i);
+            }, 3000)
+
+            console.log("**********************")
+            
+        }
+
+        x()
+
+    </script>
+</head>
+<body>
+    
+</body>
+</html>
+
+<!-- 
+setTimeout( callbackfunction, timerinms, args)
+==========================================================
+a. fuction inside the setTimeout forms a closure and remembers reference to i.
+b. Wherever function goes it take the reference of i...
+
+
+-->

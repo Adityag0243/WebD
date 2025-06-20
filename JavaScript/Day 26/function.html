@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <script type="text/javascript">
+        let password = prompt("Enter password");
+        let msg = null;
+
+        if( password === 'sachin'){
+            msg = ()=>{
+                console.log("Success");
+            }
+        }else{
+            msg = ()=>{
+                console.log("Failure");
+            }
+        }
+
+        msg();
+
+    </script>
+</head>
+<body>
+    
+</body>
+</html>
+
+<!-- 
+
+    Function
+
+    Whenever a function gets executed, a new Execution Context will be created and it would a part of CallStack
+    Variables used under function will be of 'block scope'
+    In JS a function can accept parameter like primitive types and non primitive[objects and functions]
+    function can return object as well as function too
+    Since function can do majority of the work in JS, we say fucntion as 
+        | First Class Citizens | heart of javascript |
+    
+        // Function decleration
+        function fnName(parameteres){
+            // body...
+            return ...
+        }
+
+        // Function Expression
+        let add = function( ){       ------ Anonymous function
+                    // body
+                }
+
+        let add = () =>{             ------- Anonymous can be replace with arrow... 
+                    // body
+                }
+
+        
+
+-->
