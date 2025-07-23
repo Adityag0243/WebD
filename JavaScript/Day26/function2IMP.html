@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <script type="text/javascript">
+        const obj = {
+            name :'Sachin',
+            age : 51,
+            email : 'sachin@gmail.com',
+
+            print : function(){
+                console.log(this.name, "....");  // it will refer to same object....
+                console.log(this.age, "....");
+            },
+            print1 : ()=>{
+                console.log(this.name, "....");    // will check in global scope (lexical scope)
+                console.log(this.age, "....");
+            },
+            print2 : function(){
+                console.log(name, "....");   // will check in local scope
+                console.log(age, "....");
+            }
+        }
+        console.log(obj.print)
+        console.log("***************")
+        console.log(obj.print(), "Done")
+        console.log("***************")
+        console.log(obj.print1(), "Done")
+        console.log("***************")
+        console.log(obj.print2(), "Done")
+        console.log("***************")
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

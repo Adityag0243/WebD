@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        nav .active{
+            border: 1px solid blue;
+        }
+        nav img{
+            height: 120px;
+            width: 120px;
+        }
+        .zoomOut{
+            height: 350px;
+            width: 350px;
+            transition: 3s;
+        }
+        .zoomIn{
+            height: 450px;
+            width: 450px;
+            transition: 3s;
+        }
+        main img {
+            width: 350px;
+            height: 350px;
+            /* border: 1px solid rgb(157, 34, 34); */
+            overflow: hidden; 
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+                
+    </style>
+</head>
+<body>
+    <section class="container" style="display: flex; margin: 20px;">
+        <nav class="imgContainer"  style="width: 150px; height: 450px; ">
+            <img class=""  src="./phone1.jpg" onmouseover="displayImg(this)"  >
+            <img class=""  src="./phone2.jpg" onmouseover="displayImg(this)" >
+            <img class=""  src="./phone3.jpg" onmouseover="displayImg(this)" >
+            <img class=""  src="./phone4.jpg" onmouseover="displayImg(this)" >
+        </nav>
+
+        <!-- <main class="mainImg" style="width: 350px; height: 350px; margin-top: 50px; border: 1px solid black;">
+            <img class="zoomOut" onmousedown="zoomup(this)" onmouseup="normal(this)">
+        </main> -->
+        <main class="mainImg" style="width: 450px; height: 450px; margin-top: 50px; ">
+            <img class="zoomOut" src="./phone1.jpg" onmousedown="zoomup(this)" onmouseup="normal(this)" >
+        </main>
+        <!-- <main class="mainImg">
+            <img class="zoomOut" src="./phone1.jpg" onmousedown="zoomup(this)" onmouseup="normal(this)">
+        </main> -->
+    </section>
+
+    <script type="text/javascript">
+        function displayImg(obj){
+            document.querySelector('main img').src = obj.src;
+
+            document.querySelectorAll('nav img').forEach(img => {
+                img.classList.remove('active')
+            });
+            obj.classList.add('active')
+        }
+        // function zoomup(obj){
+        //     console.log(obj.className);
+        //     obj.className = 'zoomIn';
+        // }
+        // function normal(obj){
+        //     console.log(obj.className);
+        //     obj.className = 'zoomOut';
+        // }
+        function zoomup(obj){
+            obj.classList.remove('zoomOut');
+            obj.classList.add('zoomIn');
+        }
+
+        function normal(obj){
+            obj.classList.remove('zoomIn');
+            obj.classList.add('zoomOut');
+        }
+    </script>
+</body>
+</html>

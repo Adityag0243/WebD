@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <fieldset style="width:250px;">
+        <legend>Install HDFC App</legend>
+
+        <div class="container">
+            <select id="lstVersion">
+                <option value="-1">Select Version</option>
+                <option value="ver-1">Version-1-2023</option>
+                <option value="ver-2">Version-2-2024[Loans]</option>
+                <option value="ver-3">Version-3-2025[NRI Banking]</option>
+            </select>
+            <button id="btnInstall">Install</button>
+        </div>
+    </fieldset>
+
+
+    <script>
+        class HDFCVersion1{
+            personalBanking;
+            creditCardPayment;
+
+            print(){
+                document.write("<p>Personal Banking <br> Credit Card Payment</p>");
+            }
+        }
+        class HDFCVersion2 extends HDFCVersion1{
+            loan = "<p>House Loan, Gold Loan, Education Loan</p>";
+
+            print(){
+
+                super.print();
+                document.write('<p>Loan Services : </p>')
+                                
+                let loans = this.loan.split(',');
+                loans.forEach(element => {
+                    document.write(`&nbsp; &nbsp;  -${element} <br>`);
+                });
+            }
+        }
+        class HDFCVersion3 extends HDFCVersion2{
+            nriServices = "NRI Services is available";
+
+            print(){
+                super.print();
+                document.write(`${this.nriServices}`)
+            }
+        }
+
+        document.getElementById('btnInstall').addEventListener('click',()=>{
+            const version = document.getElementById('lstVersion').value;
+            let obj = null;
+
+            switch(version){
+                case 'ver-1':
+                    obj = new HDFCVersion1();
+                    document.write(`<h2>Installing HDFC Version 1 Application </h2>`);
+                    obj.print();
+                    break;
+                case 'ver-2':
+                    obj = new HDFCVersion2();
+                    document.writeln('<h2>Installing HDFC Version 1 Application<h2>')
+                    obj.print();
+                    break;
+                case 'ver-3':
+                    obj = new HDFCVersion3();
+                    document.write('<h2>Installing HDFC Version 1 Application<h2>')
+                    obj.print();
+                    break;
+                default:
+                    document.write("Please select any version to install....")
+            }
+        })
+    </script>
+</body>
+</html>

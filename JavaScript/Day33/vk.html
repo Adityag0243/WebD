@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <button id="btnInfo" class="btn btn-primary" onclick="iphoneInfo(this.className,'IPHONE',['Bglr','Hyd'],{Rating : 4.5, count : 4500 })" >DISPLAYINFO</button>
+    <img id="imgPhone" alt="">
+
+    <script type="text/javascript">
+        function iphoneInfo(...args){
+            [classname, productName, lstCities, rating] = args;
+            if(productName == 'IPHONE'){
+                const iphone = document.getElementById('imgPhone');
+                iphone.src = './iphone.jpg';
+                iphone.style.width = '700px';
+                iphone.style.height = '500px';
+            }
+
+            const ul = document.createElement('ul');
+
+            const liProduct = document.createElement('li');
+            liProduct.textContent = productName; 
+
+            const liCities = document.createElement('li');
+            liCities.textContent = lstCities; 
+
+            const liRating = document.createElement('li');
+            liRating.textContent = rating.Rating; 
+
+            const liclassName = document.createElement('li');
+            liclassName.textContent = classname; 
+
+            ul.append( liProduct, liCities, liRating, liclassName);
+            document.body.appendChild(ul)
+        }
+    </script>
+</body>
+
+</html>

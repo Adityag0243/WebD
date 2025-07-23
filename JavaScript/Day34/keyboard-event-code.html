@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script type="text/javascript">
+        function handleKeyDown(){
+            console.log("Key down");
+        }
+        function handleKeyUp(){
+            console.log("Key Up");
+        }
+        function handleKeyPress(e){
+            console.log("Key Pressed: ", e);
+        }
+        
+
+    </script>
+</head>
+<body>
+    <input type="text" id="txtUserName" onkeydown="handleKeyDown()" onkeyup="handleKeyUp()" onkeypress="handleKeyPress(event)" >
+</body>
+</html>

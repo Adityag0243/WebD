@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../node_modules/bootstrap-icons/font/bootstrap-icons.css">
+</head>
+<body>
+    <fieldset style="width: 150px;">
+        <legend>Sign In</legend>
+        <dl>
+            <dt>UserName</dt>
+            <dd>
+                <input type="text" id="txtUserName">
+                <dd id="lblmsg"></dd>
+            </dd>
+
+            <dt>Password</dt>
+            <dd>
+                <input type="password" id="txtpwd"  placeholder="prefered in lowercase">
+                <dd id="pwdmsg" style="color: red; display: none" >
+                    <span class="bi bi-exclamation-triangle-fill" ></span> Warning : CapsLock On
+                </dd>
+            </dd>
+            
+        </dl>
+    </fieldset>
+
+    <script type="text/javascript">
+        let msg = document.getElementById('lblmsg')
+        document.getElementById('txtUserName').addEventListener('keyup',function(){
+            let data = this.value;
+            let url = './data/user-info.json';
+            fetch(url)
+                .then(response => response.json())
+                .then(function (users){
+                    for (const user of users) {
+                        if(user.userName === data){
+                            msg.innerHTML = `<span style="color:red">Not Available</span>`
+                            break
+                        }else{
+                            msg.innerHTML = `<span style="color:green">Available</span>`
+                        }
+                    }  
+                })
+
+        })
+
+        document.getElementById('txtpwd').addEventListener('keypress',function(e){
+            const msg = document.getElementById('pwdmsg')
+            if(e.keyCode >= 65 && e.keyCode <= 90){
+                msg.style.display = 'block';
+            }else{
+                msg.style.display = 'none';
+            }
+
+        })
+    </script>
+</body>
+</html>

@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <script type="module">
+        import {DataBase} from './databaseClass.js';
+
+        const body_ = document.body;
+        const db = document.getElementById('db');
+        
+        let dbObj;
+        window.createInstance= function(){
+            let value = db.value;
+            let dbStr = value === "1" ? "MySql" :
+                       value === "2" ? "Oracle" :
+                       value === "3" ? "MongoDb" : "Unknown";
+            dbObj = new DataBase(dbStr);
+        }
+
+        const p = document.createElement('p');
+
+        window.insertOp = function(){
+            p.textContent = dbObj.insert();
+            body_.appendChild(p);
+        }
+
+        window.updateOp = function(){
+             p.textContent = dbObj.update();
+            body_.appendChild(p);
+        }
+
+        window.deleteOp = function(){
+             p.textContent = dbObj.delete();
+            body_.appendChild(p);
+        }
+    </script>
+    
+</head>
+<body>
+
+    <div>
+        <dl>
+            <dt>Select Database</dt>
+            <dd>
+                <select id="db" onchange="createInstance()">
+                    <option>Select DB</option>
+                    <option value="1">MySql</option>
+                    <option value="2">Oracle</option>
+                    <option value="3">MongoDb</option>
+                </select>
+            </dd>
+
+            <dt>Select Action</dt>
+            <dd>
+                <div class="btnG">
+                    <button onclick="insertOp()">Insert</button>
+                    <button onclick="updateOp()">Update</button>
+                    <button onclick="deleteOp()">Delete</button>
+                </div>
+            </dd>
+        </dl>
+    </div>
+
+    
+    
+</body>
+</html>

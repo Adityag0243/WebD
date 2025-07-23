@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <p id="msg"></p>
+    <p id="details"></p>
+    <button id="btnPay" class="btn btn-primary" name="payBtn" onclick="insertClick(this, event) ">Pay</button>
+
+    <script type="text/javascript">
+        function insertClick( obj, e){
+            const msg = document.querySelector('#msg');
+            const details = document.querySelector('#details');
+
+            msg.textContent = `${e.clientX}   px  ${e.clientY}  px , control btn click status : ${e.ctrlKey}  `;
+            details.textContent = `${this.name} `
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <fieldset>
+        <legend>Sign In</legend>
+        <dl>
+            <dt>UserName</dl>
+            <dd>
+                <input type="text" id="txtUserName" value="5567" oncopy="handleCopy()"  oncut="handlePaste()">
+            </dd>
+            <dd id="lblMsg" style="display: none;">
+                
+            </dd>
+            
+            <dt>Password</dl>
+            <dd>
+                <input onpaste="return false;" type="password" id="txtUserName" >
+            </dd>
+            
+            
+        </dl>
+    </fieldset>
+
+    <script type="text/javascript">
+        const msg = document.getElementById('lblMsg')
+        function handleCopy(){
+            msg.textContent = 'copied to clipboard';
+        }
+        function handleCut(){
+            msg.textContent = 'Removed and cut to clipboard';
+        }
+    </script>
+</body>
+</html>

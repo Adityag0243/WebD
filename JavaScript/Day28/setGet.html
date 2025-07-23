@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script type="text/javascript">
+        let userName = prompt("Enter the username")
+        let role = prompt("Enter the role","customer|admin")
+        let productName = prompt("Enter the product name")
+
+        class Product{
+            _productName;
+
+            set productName(newName){
+                if(role === 'admin') this._productName = productName;
+                else{
+                    document.write(`User : ${userName} is not priviledged to change the name`);
+                }
+            }
+
+            get productName(){
+                return this._productName
+            }
+        }
+
+        let p = new Product();
+        p.productName = productName;
+        if( p.productName){
+            console.log(`Our new Product Name is : ${p.productName}`);
+        }
+    </script>
+</head>
+<body>
+    
+</body>
+</html>
