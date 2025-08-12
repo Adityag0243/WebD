@@ -1,0 +1,63 @@
+[
+    {
+        "question" : "Which language runs in browser ?",
+        "options" : {
+            "a" : "Java",
+            "b" : "C++",
+            "c" : "Javascript",
+            "d" : "Python"
+        },
+        "correct_option" : "c"
+    },
+    {
+        "question" : "Capital of India ?",
+        "options" : {
+            "a" : "Kolkata",
+            "b" : "New delhi",
+            "c" : "Bengaluru",
+            "d" : "Mysore"
+        },
+        "correct_option" : "b"
+    },
+    {
+        "question" : "Which cricketer have 100 century ?",
+        "options" : {
+            "a" : "Virat Kohli",
+            "b" : "RickyPonting",
+            "c" : "Rahul Dravid",
+            "d" : "Sachin Tendulkar"
+        },
+        "correct_option" : "d"
+    },
+    {
+        "question": "What does CSS stand for?",
+        "options": {
+            "a": "Computer Style Sheets",
+            "b": "Creative Style Sheets",
+            "c": "Cascading Style Sheets",
+            "d": "Colorful Style Sheets"
+        },
+        "correct_option": "c"
+    },
+    {
+        "question": "Which company developed the Java programming language?",
+        "options": {
+            "a": "Sun Microsystems",
+            "b": "Microsoft",
+            "c": "Google",
+            "d": "Apple"
+        },
+        "correct_option": "a"
+    },
+    {
+        "question": "Which of the following is not a programming language?",
+        "options": {
+            "a": "Python",
+            "b": "HTML",
+            "c": "JavaScript",
+            "d": "C++"
+        },
+        "correct_option": "b"
+    }
+
+]

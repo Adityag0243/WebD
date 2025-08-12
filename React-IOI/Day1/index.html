@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./index.css">
+</head>
+<body>
+
+    <div class="root" id="root">
+
+    </div>
+
+
+    <script crossorigin src="https://unpkg.com/react@18/umd/react.development.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+
+    <script type="text/javascript">
+
+        const container = document.getElementById('root');
+        // Using react we render the dom
+        const heading = React.createElement('h1',
+                                            {'id':'heading' , 
+                                                style:{'fontSize' : '15px', 
+                                                        'color' : 'red'
+                                                    } 
+                                            }, 
+                                            "Welcome to the world of React"
+                                        );
+
+        // access the root element
+        const root= ReactDOM.createRoot(container)
+
+        // render the element
+        root.render(heading)
+
+
+    </script>
+    
+</body>
+</html>
+
+<!-- 
+NOTES:
+        first load react then use ORDER MATTERS.....
+        It override everything after rendering (Only in the region where it is being use, won't disturb where it is not used).... 
+        This is why react is a library not framework
+        React.createElement('h1',
+                            {'id':'heading',
+                                'props' : 'value'  (could be like style : {props : value}  inline styling )
+                            },
+                             "Welcome to the world of React");
+-->

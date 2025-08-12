@@ -1,7 +1,7 @@
-function myName(){
+function MyName(){
     return (
-        <h1>Aditya</h1>
+        <h1>My Name is : </h1>
     )
 }
 
-export default myName
+export default MyName

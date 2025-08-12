@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./index.css">
+</head>
+<body>
+
+    <div id="root">
+
+
+    </div>
+
+
+    <!-- <div id="root">
+        <div id="parent">
+            <div id="child">
+                <div id="heading">
+                    Hello world from react with nesting
+                </div>
+            </div>
+        </div>
+    </div> -->
+
+    <script crossorigin src="https://unpkg.com/react@18/umd/react.development.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+
+    <script type="text/javascript">
+        const root_container = document.getElementById('root');
+
+        let heading1 = React.createElement('h1', {'id':'heading1'}, 'Welcome World from React')
+        let heading2 = React.createElement('h1', {'id':'heading2'}, 'Learning React in a easy way from Nithin Sir')
+        const child1 = React.createElement('div', {'id':'child1'}, heading1, heading2)
+
+        heading1 = React.createElement('h1', {'id':'heading1'}, 'Attend all the session Regularly')
+        heading2 = React.createElement('h1', {'id':'heading2'}, 'Maintain notes and practice regularly')
+        const child2 = React.createElement('div', {'id':'child2'}, heading1, heading2)
+
+
+
+        const parent = React.createElement('div', {'id':'parent'}, child1, child2)
+        const root = ReactDOM.createRoot(root_container)
+
+        root.render(parent)
+        
+    </script>
+</body>
+</html>
+
+
+<!-- 
+
+Notes :
+    It would be difficult to write such type of nested code in real life environment as there will be complex nesting there
+
+    to handle this Reeact team introduce
+        JSX ->JS and XML type syntax of HTML....
+
+-->

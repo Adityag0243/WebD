@@ -1,0 +1,19 @@
+#heading1{
+    color: red;
+    font-family: sans-serif;
+}
+#heading2{
+    color: blue;
+    font-family: 'Times New Roman', Times, serif;
+}
+
+#child1, #child2{
+    border: 1px solid black;
+    width: 250px;
+    padding: 2px;
+}
+#child2{
+    border: 1px solid black;
+    width: 500px;
+    padding: 2px;
+}

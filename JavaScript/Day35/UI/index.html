@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../../node_modules/bootstrap/dist/css/bootstrap.css">
+    <link rel="stylesheet" href="../../node_modules/bootstrap-icons/font/bootstrap-icons.css">
+</head>
+<body >
+    <form class="form-control shadow-sm p-3 mb-5 bg-white rounded" style="width: 500px;">
+
+        <div class="question" id="qBox"></div>
+
+        <div class="options form-check" id="optBox">
+            <label>
+                <input type="radio" name="q1" id="option1" value="a">
+                <span id="lbl1"></span>
+            </label><br>
+            
+            <label >
+                <input type="radio" name="q1"  id="option2" value="b">
+                <span id="lbl2"></span>
+            </label><br>
+            <label>
+                <input type="radio" name="q1"  id="option3" value="c"> 
+                <span id="lbl3"></span>
+            </label><br>
+            <label >
+                <input type="radio" name="q1"  id="option4" value="d">
+                <span id="lbl4"></span>
+            </label>
+        </div>
+
+        <div class="btnContainer">
+            <button class="btn btn-primary" id="btnSubmit" type="submit">Submit</button>
+        </div>
+    </form>
+
+    <script type="text/javascript">
+        let timeoutId;
+        let ind = 0;
+        const qBox = document.getElementById('qBox');
+        const opt = document.getElementById('optBox');
+        let correct_opt = 'f'
+        let correctCnt = 0;
+        let data_ = []
+
+
+        const clearSelection = () => {
+            document.querySelectorAll('input[type="radio"]').forEach((radio) => {
+                radio.checked = false;
+            });
+        };
+
+        const handleSubmit = ()=>{
+            clearTimeout(timeoutId);
+            const selected = document.querySelector('input[type="radio"]:checked'); 
+
+            if(selected){
+                console.log("here I am.... ");
+                
+                if( selected.value === data_[ind].correct_option ){
+                    correctCnt++
+                }
+                console.log(selected.value , correctCnt);
+            }
+            clearSelection()
+            clearTimeout(timeoutId)
+            nextQna()
+        }
+
+
+        function loadQna(){
+            qna = data_[ind]
+            
+            if (ind >= data_.length) {
+                qBox.textContent = `Quiz Over! You got ${correctCnt} correct.`;
+                document.getElementById('optBox').style.display = 'none';
+                btnSubmit.disabled = true;
+                return;
+            }
+
+            qBox.textContent = qna.question;
+            document.getElementById('lbl1').textContent = "A. " + qna.options.a;
+            document.getElementById('lbl2').textContent = "B. " + qna.options.b;
+            document.getElementById('lbl3').textContent = "C. " + qna.options.c;
+            document.getElementById('lbl4').textContent = "D. " + qna.options.d;
+
+            clearSelection()
+
+            timeoutId = setTimeout(()=>{
+                nextQna();
+            }, 5000)
+
+        }
+
+        document.getElementById('btnSubmit').addEventListener('click', function(e){
+            e.preventDefault();
+            handleSubmit();
+        })
+
+        const nextQna = ()=>{
+            ind++;
+            loadQna()
+        } 
+
+        const url = './questions_answer.json'
+        fetch(url)
+            .then( Response => Response.json())
+            .then(data =>{
+                data_ = data
+                loadQna()
+            })
+
+    </script>
+
+</body>
+</html>

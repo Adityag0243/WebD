@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form onreset="alert('Form will be cleared')" >
+        <dl>
+            <dt>UserName</dt>
+            <dd>
+                <input type="text" name="txtUserName" id="txtUsername">
+            </dd>
+
+            <dt>Password</dt>
+            <dd>
+                <input type="password" name="txtPwd" id="txtPwd">
+            </dd>
+
+            <dd>
+                <button type="submit" style="margin-top: 5px;" id="btnSubmit" >submit</button> 
+                <!-- By default Page will get refresh and input will be visible in querystring -->
+                <button type="reset" style="margin-top: 5px;" >reset</button>
+            </dd>
+        </dl>
+    </form>
+    <p id="msg">
+
+    </p>
+
+    <script type="text/javascript">
+        document.getElementById('btnSubmit').addEventListener('click', function(e){
+            e.preventDefault();  // when we to happen something on same page
+            console.log('Data not going to backend and page didnt get refresh');
+            
+            // remove default nature of type = 'submitting' -> like refreshing the page sending to backend and query string
+            const UserName = document.getElementById('txtUsername')
+            const Password = document.getElementById('txtPwd')
+
+            document.getElementById('msg').innerHTML = `<span style="font-size:45px;">UserName is : ${UserName.value} <br> Password is : ${Password.value} </span>`
+        })
+    </script>
+</body>
+</html>
