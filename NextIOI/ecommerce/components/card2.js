@@ -1,22 +1,33 @@
 import Image from 'next/image'
+import styles from '../app/(products)/button.module.css'
+import cardstyles from './card.module.css'
 
 function Card2({imgSrc, itemName, itemPrice  = 30, desc}) {
+    console.log("here in id 2 ");
+    
   return (
-    <div class="max-w-sm rounded-xl overflow-hidden shadow-lg">
+    <div className="grid grid-cols-2 rounded-xl overflow-hidden shadow-lg m-5">
 
         <Image
           src = {imgSrc}
-          width = {400}
-          height = {400}
+          width = {700}
+          height = {700}
           alt = {"test"}
+          className={`{ ${cardstyles.card} ${cardstyles.card__img} }`}
         />
 
-        <div class="px-4 py-4">
-          <div class="font-bold text-xl mb-1">{itemName}</div>
-          <p class = 'text-2xl font-bold text-gray-600' >₹ {itemPrice} </p>
-          <p class="text-gray-700 text-base">
+        <div className="px-4 py-4 m-3">
+          <div className = {`${cardstyles.card__title}`}>{itemName}</div>
+          <p className = 'text-4xl font-bold text-gray-600 mb-2' >₹ {itemPrice} </p>
+          <p className="text-gray-700 text-2xl mb-2">
             {desc}
           </p>
+          <button
+            className = { `${styles.button} ${styles.bgPrimary}` }
+          >Add to cart</button>
+          <button
+            className = {`${styles.button} ${styles.bgPrimary}`} 
+          >Add to Wishlist</button>
         </div>
     </div>
   )

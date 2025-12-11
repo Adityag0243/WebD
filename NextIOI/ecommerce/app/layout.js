@@ -1,3 +1,6 @@
+'use-client'
+import Link from "next/link";
+
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 
@@ -22,7 +25,24 @@ export default function RootLayout({ children }) {
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
+        <header
+          className="flex justify-around text-2xl font-bold p-2 m-2 bg-gray-100 text-blue-950 rounded-xl"
+        >
+          <div>
+            Ecommerce
+          </div>
+          <div>
+            <ul
+              className ='flex gap-10'
+            >
+              <li>Home</li>
+              <li>Products</li>
+              <li>Login/Register</li>
+            </ul>
+          </div>
+        </header>
         {children}
+      
       </body>
     </html>
   );

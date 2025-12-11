@@ -1,0 +1,20 @@
+.card{
+    margin: 10px;
+}
+
+.card__title{
+    font-size: 50px;
+    font-weight: bold;
+}
+
+.card__img{
+    height: 600px;
+    width : 600px;
+    border: 2px solid black;
+    border-radius: 12px;
+}
+
+.card__description{
+    font-size: 12px;
+    color:rgb(92, 92, 92)
+}

@@ -1,29 +1,37 @@
-import Card from "@/components/card";
-async function Products() {
-    const res  = await fetch('https://dummyjson.com/products')
-    const prod = await res.json();
-    console.log("prod:  ",prod);
-    
+import Products from "./products_";
+import Select from "./select";
+
+async function DataLoader({ searchParams }) {
+  const resolvedSearchParams = await searchParams;
+
+  const rating = Number(resolvedSearchParams?.rating ?? 0);
+  const search = resolvedSearchParams?.search ?? "";
+
+
+  const res = await fetch("https://dummyjson.com/products");
+  const prod = await res.json();
+
+  let data = rating ? prod.products.filter((p) => p.rating >= rating) : prod.products;
+
+  if (search) {
+    data = data.filter((item) =>
+      item.title.toLowerCase().includes(search.toLowerCase())
+    );
+  }
+
   return (
     <>
-      <div className = 'text-3xl text-black text-center m-2 bg-gray-100 p-2 rounded-xl '>All Products</div>
-      <div className = 'grid grid-cols-3 sm:grid-cols-1 md:grid-cols-3 m-6 p-2 gap-6'>
-        {
-          prod.products.map( (item, idx)=>{
-            return(
-              <Card 
-                key={idx}
-                imgSrc = {item.images[0]}
-                itemName = {item.title}
-                itemPrice={item.price}
-                desc = {item.description}
-              />
-            )
-          })
-        }
+      <div className = 'text-3xl text-white text-center m-2 bg-blue-950 p-1 rounded-xl '>All Products</div>
+      <div className="grid sm:grid-cols-1 md:grid-cols-1 lg:grid-cols-2 " >
+          <Select rating = {rating} val = {search}/>
       </div>
+      <Products
+        prod={data}
+      />
     </>
-  )
+  );
 }
 
-export default Products
+export default DataLoader;
+
+

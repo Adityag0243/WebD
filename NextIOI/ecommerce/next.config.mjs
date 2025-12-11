@@ -8,6 +8,18 @@ const nextConfig = {
         protocol: 'https', 
         hostname: 'cdn.dummyjson.com',
       },
+      {
+        protocol: 'https',
+        hostname: 'cdn.vectorstock.com',
+      },
+      {
+        protocol: 'https',
+        hostname: 'cdn.vectorstock.com',
+      },
+      {
+        protocol: 'https',
+        hostname: 'shutterstock.com',
+      },
     ],
   },
 };
