@@ -12,15 +12,34 @@ export async function generateStaticParams(){
     productId : item.id.toString()
   }))
 }
+async function getProductdata(id){
+  const res  = await fetch(`https://dummyjson.com/products/${id}`)
+  const prod = await res.json();
+  return prod;
+}
+
+export async function generateMetadata({params}){
+  const {productId} = await params;
+  const prod = await getProductdata(productId);
+  return {
+    title: `${prod.title}`,
+    description:`${prod.description}`,
+    openGraph:{
+      title:`${prod.title} open graph wala`,
+      description : `${prod.description} op in the house`,
+      images : [`${prod.thumbnail}` || `${prod.images[0]}`]
+    },
+    twitter:{
+      title:`${prod.title}`,
+      card:""
+    }
+  }
+}
 
 
 async function ProductId({params}) {
-
     const {productId} = await params;
-    console.log(productId);
-    
-    const res  = await fetch(`https://dummyjson.com/products/${productId}`)
-    const prod = await res.json();
+    const prod = await getProductdata(productId);
     if(prod.hasOwnProperty('message')){
       notFound()
     }
@@ -30,7 +49,7 @@ async function ProductId({params}) {
         imgSrc = {prod.images[0]}
         itemName = {prod.title}
         desc = {prod.description}
-        // onclick = {handleOnclick} 
+        // onClick = {handleOnclick} 
       />
     
     </>

@@ -23,7 +23,7 @@ function Card({id_, imgSrc, itemName, itemPrice  = 30, desc, itemRating}) {
         </div>
         <div className="px-4 py-4">
           <div className="font-bold text-xl mb-1">{itemName}</div>
-          <div class = 'flex justify-between  bg-gray-100 rounded-lg'>
+          <div className = 'flex justify-between  bg-gray-100 rounded-lg'>
             <p className = 'text-xl font-bold text-gray-700 p-2' >₹ {itemPrice} </p>
             <p className = 'text-md text-amber-600 bg-amber-200 p-2 m-1 rounded-xl font-bold' >{itemRating} ⭐</p>
           </div>

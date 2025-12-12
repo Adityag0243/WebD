@@ -1,6 +1,14 @@
 import Products from "./products_";
 import Select from "./select";
 
+
+export function generateMetadata(){
+  return {
+    title:"Product Page",
+    description:"This is the product page"
+  }
+}
+
 async function DataLoader({ searchParams }) {
   const resolvedSearchParams = await searchParams;
 
