@@ -29,8 +29,10 @@ async function DataLoader({ searchParams }) {
 
   return (
     <>
-      <div className = 'text-3xl text-white text-center m-2 bg-blue-950 p-1 rounded-xl '>All Products</div>
-      <div className="grid sm:grid-cols-1 md:grid-cols-1 lg:grid-cols-2 " >
+      <div 
+        className = 
+        'text-3xl text-white text-center m-2 bg-blue-950 p-1 rounded-xl sticky top-14 z-20'>All Products</div>
+      <div className="grid sm:grid-cols-1 md:grid-cols-1 lg:grid-cols-2" >
           <Select rating = {rating} val = {search}/>
       </div>
       <Products

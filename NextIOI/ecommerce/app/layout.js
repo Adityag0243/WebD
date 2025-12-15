@@ -1,18 +1,21 @@
 'use-client'
 import Link from "next/link";
 
-import { Geist, Geist_Mono } from "next/font/google";
+import {  Allura, IBM_Plex_Serif, Playfair_Display, Kalnia, Cause } from "next/font/google";
 import "./globals.css";
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
+import { myFont } from "./font";
+
+const allura = Kalnia({
+  variable : '--font-allura',
   subsets: ["latin"],
+  weight : '400'
 });
 
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
-  subsets: ["latin"],
-});
+// const geistMono = Geist_Mono({
+//   variable: "--font-geist-mono",
+//   subsets: ["latin"],
+// });
 
 export const metadata = {
   title: "Ecommerce Platform",
@@ -23,10 +26,16 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
+        className={`${myFont.className}  antialiased`}
       >
         <header
-          className="flex justify-around text-2xl font-bold p-2 m-2 bg-gray-200 text-blue-950 rounded-xl"
+          className="
+            flex justify-around 
+            text-2xl font-bold 
+            p-2 m-2 bg-gray-200 
+            text-blue-950 rounded-xl
+            sticky top-0 z-50 opacity-90
+            "
         >
           <div>
             Ecommerce
