@@ -3,5 +3,4 @@ function notfound() {
     <div>not-found upper level</div>
   )
 }
-
 export default notfound

@@ -1,0 +1,24 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script type="text/javascript">
+        function processLogic(){
+            const p = document.querySelector('p');
+            p.textContent = `Name : ${localStorage.getItem('userName') || document.cookie}`
+        }
+        function signOut(){
+            localStorage.removeItem('userName');
+            location.href = './localStorage.html'
+        }
+    </script>
+</head>
+<body onload="processLogic()">
+        <h3> User Details </h3>
+        <button onclick="signOut()">Signout</button>
+        <p></p>
+</body>
+</html>

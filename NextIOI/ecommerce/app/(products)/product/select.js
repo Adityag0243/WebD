@@ -1,3 +1,6 @@
+'use client'
+import SearchBar from "@/components/searchBar";
+
 export default function Select({ rating, val }) {
   return (
     <form
@@ -22,21 +25,7 @@ export default function Select({ rating, val }) {
           Apply
         </button>
       </div>
-      <div className="flex ">
-        <input 
-            placeholder="search item" 
-            type='text' 
-            name = 'search'
-            className="w-64 m-2 px-4 py-2 border rounded-xl shadow-gray-300 shadow-md"
-            defaultValue={val}
-        /> 
-        <button 
-          type="submit"
-          className = 'm-2 p-2 border rounded-xl shadow-gray-300 shadow-md'
-        >Search</button>
-      </div>
-
-
+      <SearchBar/>
     </form>
   );
 }

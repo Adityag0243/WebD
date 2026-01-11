@@ -7,6 +7,8 @@ import Card from "@/components/card";
 // import SearchBar from "./search";
 
 function Products({ prod }) {
+    console.log("data loaded... comes in product page as well");
+
   return (
     <>
       

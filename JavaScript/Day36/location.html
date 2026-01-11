@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script type="text/javascript"> 
+        if( location.protocol == 'http:'){
+            document.write(`Your IP : ${location.host}, <br>
+                            Your Port No : ${location.port},<br>
+                            URL : ${location.href},<br>
+                            Path : ${location.pathname}`
+                            );
+
+            console.log(location.ancestorOrigins); 
+            console.log(location.search); // add this to current url: ?username=sachin&password=tendulkar  for result
+            console.log(location); 
+        }else{
+            console.log(location); 
+            document.write('Please run the app using live server - You are not using Live Server');
+        }
+
+        console.log(navigator.language);
+        console.log(navigator.platform);
+        // console.log(navigator.cookieEnabled);
+        console.log(navigator);
+
+
+        navigator.geolocation.getCurrentPosition(function pos(position){
+
+            document.write(`
+                current latitude : ${position.coords.latitude},
+                current longitude : ${position.coords.longitude},
+                History : ${history.length},
+            `) 
+        })
+        console.log(history)
+
+
+        // document.cookie = "testcookie=1";
+        // const cookiesEnabled = document.cookie.indexOf("testcookie=") !== -1;
+        // console.log("Cookies actually usable:", cookiesEnabled);
+
+        
+
+        function loginCheck(){
+            const username = document.getElementById('txtUsername').value;
+            const password = document.getElementById('txtPassword').value;
+            if(username == 'nithin' && password == 'nithin123'){
+                // location.href = '../Day36/netflix.html'    // for external page navigation.....
+                location.hash = 'idharAao'   // for internal page navigation....
+            }else{
+                location.href = '../Day36/error-code.html'
+            }
+        }
+    </script>
+</head>
+<body>
+
+    <dl>
+        <dt>UserName</dt>
+        <dd>
+            <input type="text" name="" id="txtUsername">
+        </dd>
+        <dt>Password</dt>
+        <dd>
+            <input type="password" name="" id="txtPassword">
+        </dd>
+    </dl>
+    <button type="submit" onclick="loginCheck()">Log In</button>
+
+    <section id="idharAao">
+        <h1>IDHARRRRRR</h1>
+    </section>
+    
+</body>
+</html>

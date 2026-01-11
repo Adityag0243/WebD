@@ -18,7 +18,8 @@ async function DataLoader({ searchParams }) {
 
   const res = await fetch("https://dummyjson.com/products");
   const prod = await res.json();
-
+  console.log("data loaded... ");
+  
   let data = rating ? prod.products.filter((p) => p.rating >= rating) : prod.products;
 
   if (search) {
