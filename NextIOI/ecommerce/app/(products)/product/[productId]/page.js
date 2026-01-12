@@ -4,56 +4,61 @@ import Image from "next/image";
 import Card2 from '@/components/card2'
 import Link from "next/link";
 import { notFound } from "next/navigation";
+import axios from "axios";
 
-export async function generateStaticParams(){
-  const res = await fetch("https://dummyjson.com/products");
-  const prod = await res.json();
+export async function generateStaticParams() {
+  const res = await axios.get("https://dummyjson.com/products");
+  const prod = await res.data;
   const products = prod.products;
 
-  return products.map((item)=>({
-    productId : item.id.toString()
+  return products.map((item) => ({
+    productId: item.id.toString()
   }))
 }
-async function getProductdata(id){
-  const res  = await fetch(`https://dummyjson.com/products/${id}`)
-  const prod = await res.json();
-  return prod;
+async function getProductdata(id) {
+  const res = await axios.get(`http://localhost:3000/api/products/${id}`)
+  console.log("res : ", res);
+
+  const prod = await res.data;
+  console.log("prod", prod);
+
+  return prod[0];
 }
 
-export async function generateMetadata({params}){
-  const {productId} = await params;
+export async function generateMetadata({ params }) {
+  const { productId } = await params;
   const prod = await getProductdata(productId);
   return {
-    title: `${prod.title}`,
-    description:`${prod.description}`,
-    openGraph:{
-      title:`${prod.title} open graph wala`,
-      description : `${prod.description} op in the house`,
-      images : [`${prod.thumbnail}` || `${prod.images[0]}`]
+    title: `${prod.name}`,
+    description: `${prod.description}`,
+    openGraph: {
+      title: `${prod.name} open graph wala`,
+      description: `${prod.description} op in the house`,
+      images: [`${prod.image}`]
     },
-    twitter:{
-      title:`${prod.title}`,
-      card:""
+    twitter: {
+      title: `${prod.name}`,
+      card: ""
     }
   }
 }
 
 
-async function ProductId({params}) {
-    const {productId} = await params;
-    const prod = await getProductdata(productId);
-    if(prod.hasOwnProperty('message')){
-      notFound()
-    }
+async function ProductId({ params }) {
+  const { productId } = await params;
+  const prod = await getProductdata(productId);
+  if (prod.hasOwnProperty('message')) {
+    notFound()
+  }
   return (
     <>
       <Card2
-        imgSrc = {prod.images[0]}
-        itemName = {prod.title}
-        desc = {prod.description}
-        // onClick = {handleOnclick} 
+        imgSrc={prod.image}
+        itemName={prod.name}
+        desc={prod.description}
+      // onClick = {handleOnclick} 
       />
-    
+
     </>
   )
 }

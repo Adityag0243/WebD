@@ -1,13 +1,13 @@
 'use client'
 import SearchBar from "@/components/searchBar";
 
-export default function Select({ rating, val }) {
+export default function Select({ rating, val, category }) {
   return (
     <form
-      className = 'flex gap-20'  //  can make grid lekin phir gap control krna padega..
+      className='flex gap-20'  //  can make grid lekin phir gap control krna padega..
     >
       <div className="flex ">
-        <select 
+        <select
           name="rating"
           defaultValue={rating}
           className="w-64 m-2 px-4 py-2 border rounded-xl shadow-gray-300 shadow-md">
@@ -18,14 +18,29 @@ export default function Select({ rating, val }) {
           <option value="4">Above 4 ⭐⭐⭐⭐</option>
         </select>
 
+        <select
+          name="category"
+          defaultValue={category}
+          className="w-64 m-2 px-4 py-2 border rounded-xl shadow-gray-300 shadow-md">
+          <option value='0'>Filter By Category</option>
+          <option value="Home">Home</option>
+          <option value="Electronics">Electronics</option>
+          <option value="Sports">Sports</option>
+          <option value="Beauty">Beauty</option>
+          <option value="Kitchen">Kitchen</option>
+          <option value="Outdoors">Outdoors</option>
+          <option value="Beauty">Beauty</option>
+        </select>
+
         <button
           type="submit"
-          className = 'm-2 p-2 border rounded-xl shadow-gray-300 shadow-md'
+          className='m-2 p-2 border rounded-xl shadow-gray-300 shadow-md'
         >
+
           Apply
         </button>
       </div>
-      <SearchBar/>
+      <SearchBar />
     </form>
   );
 }

@@ -1,11 +1,12 @@
 import Products from "./products_";
 import Select from "./select";
+import axios from "axios";
 
 
-export function generateMetadata(){
+export function generateMetadata() {
   return {
-    title:"Product Page",
-    description:"This is the product page"
+    title: "Product Page",
+    description: "This is the product page"
   }
 }
 
@@ -14,27 +15,21 @@ async function DataLoader({ searchParams }) {
 
   const rating = Number(resolvedSearchParams?.rating ?? 0);
   const search = resolvedSearchParams?.search ?? "";
+  const category = resolvedSearchParams?.category ?? "";
 
 
-  const res = await fetch("https://dummyjson.com/products");
-  const prod = await res.json();
-  console.log("data loaded... ");
-  
-  let data = rating ? prod.products.filter((p) => p.rating >= rating) : prod.products;
+  const res = await axios.get(`http://localhost:3000/api/products?search=${search}&rating=${rating}&category=${category}`);
+  let data = await res.data;
 
-  if (search) {
-    data = data.filter((item) =>
-      item.title.toLowerCase().includes(search.toLowerCase())
-    );
-  }
+
 
   return (
     <>
-      <div 
-        className = 
+      <div
+        className=
         'text-3xl text-white text-center m-2 bg-blue-950 p-1 rounded-xl sticky top-14 z-20'>All Products</div>
       <div className="grid sm:grid-cols-1 md:grid-cols-1 lg:grid-cols-2" >
-          <Select rating = {rating} val = {search}/>
+        <Select rating={rating} val={search} category={category} />
       </div>
       <Products
         prod={data}

@@ -7,7 +7,7 @@ export const runtime = "nodejs";
 export async function GET(request) {
   const searchParams = request.nextUrl.searchParams;
   const page_no = searchParams.get("page_no") || 1;
-  const page_size = searchParams.get("page_size") || 5;
+  const page_size = searchParams.get("page_size") || 15;
   try {
     console.log("Inside the GET")
     const result = await pool.query("select * from users limit $1 offset $2", [page_size, (page_no - 1) * page_size])

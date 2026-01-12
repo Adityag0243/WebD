@@ -9,7 +9,7 @@ const pool = new Pool({
   user: "postgres",         // DB username
   password: "admin",  // DB password
   database: "postgres",    // ✅ DB name
-  max: 1
+  max: 3
 });
 
 export default pool;

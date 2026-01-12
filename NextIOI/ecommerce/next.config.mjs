@@ -2,13 +2,13 @@
 const nextConfig = {
   /* config options here */
   reactCompiler: true,
-  experimental : {
-    turbo : false,
+  experimental: {
+    turbo: false,
   },
   images: {
     remotePatterns: [
       {
-        protocol: 'https', 
+        protocol: 'https',
         hostname: 'cdn.dummyjson.com',
       },
       {
@@ -22,6 +22,10 @@ const nextConfig = {
       {
         protocol: 'https',
         hostname: 'shutterstock.com',
+      },
+      {
+        protocol: 'https',
+        hostname: 'picsum.photos',
       },
     ],
   },

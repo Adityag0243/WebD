@@ -1,28 +1,20 @@
-
-
-// "use client";
-
-
 import Card from "@/components/card";
-// import SearchBar from "./search";
 
 function Products({ prod }) {
-    console.log("data loaded... comes in product page as well");
-
   return (
     <>
-      
-      <div className = 'grid lg:grid-cols-4 sm:grid-cols-1 md:grid-cols-2 m-4 gap-6'>
+
+      <div className='grid lg:grid-cols-4 sm:grid-cols-1 md:grid-cols-2 m-4 gap-6'>
         {prod.map((item, idx) => (
-          <Card 
+          <Card
             key={idx}
-            id_ = {item.id}
-            imgSrc = {item.images[0]}
-            itemName = {item.title}
+            id_={item.id}
+            imgSrc={item.image}
+            itemName={item.name}
             itemPrice={item.price}
-            itemRating={item.rating}
-            desc = {item.description}
-        />
+            itemRating={4}
+            desc={item.description}
+          />
         ))}
       </div>
     </>
