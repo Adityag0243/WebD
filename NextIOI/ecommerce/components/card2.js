@@ -1,5 +1,4 @@
 import Image from 'next/image'
-// import styles from '../app/(products)/button.module.css'
 import cardstyles from './card.module.css'
 
 import AddToCartButton from './addToCart';

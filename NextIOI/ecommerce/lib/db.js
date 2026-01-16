@@ -1,4 +1,3 @@
-
 console.log("DB FILE LOADED");
 
 import { Pool } from "pg";

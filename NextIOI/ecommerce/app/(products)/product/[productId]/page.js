@@ -6,22 +6,19 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import axios from "axios";
 
-export async function generateStaticParams() {
-  const res = await axios.get("https://dummyjson.com/products");
-  const prod = await res.data;
-  const products = prod.products;
+// export async function generateStaticParams() {
+//   const res = await axios.get("http://localhost:3000/api/products");
+//   const prod = await res.data;
+//   const products = prod.products;
 
-  return products.map((item) => ({
-    productId: item.id.toString()
-  }))
-}
+//   return products.map((item) => ({
+//     productId: item.id.toString()
+//   }))
+// }
+
 async function getProductdata(id) {
   const res = await axios.get(`http://localhost:3000/api/products/${id}`)
-  console.log("res : ", res);
-
   const prod = await res.data;
-  console.log("prod", prod);
-
   return prod[0];
 }
 

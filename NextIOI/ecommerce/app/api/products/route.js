@@ -23,3 +23,32 @@ export async function GET(request) {
         return NextResponse.json({ error: error.message });
     }
 }
+
+
+export async function POST(request) {
+    try {
+        const { name, price, stock, image, category, description } = await request.json();
+        if (!name || !price || !stock) {
+            return NextResponse.json({ error: "All fields are required" });
+        }
+        const res = await pool.query('insert into products (name, price, stock, image, category, description) values ($1, $2, $3, $4, $5, $6) returning *', [name, price, stock, image, category, description]);
+        return NextResponse.json({ message: 'Product added successfully', data: res.rows[0] });
+    }
+    catch (error) {
+        console.error(error)
+        return NextResponse.json({ error: error.message });
+    }
+}
+
+export async function DELETE(request) {
+    try {
+        const { id } = await request.json();
+        console.log(id);
+        const res = await pool.query('delete from products where id = $1 returning *', [id]);
+        return NextResponse.json({ message: 'Product deleted successfully' })
+    }
+    catch (error) {
+        console.error(error)
+        return NextResponse.json({ error: error.message })
+    }
+}

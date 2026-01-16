@@ -1,6 +1,22 @@
+'use client'
+
 import Card from "@/components/card";
+import EditModal from "./editModal";
+import { useState } from "react";
 
 function Products({ prod }) {
+
+  const [editingProduct, setEditingProduct] = useState(null);
+  const [isModalOpen, setIsModalOpen] = useState(false);
+
+  const openEditModal = (productData) => {
+    console.log("called for :: ", productData);
+    setEditingProduct(productData);
+    console.log("Value of editingproduct :: ", editingProduct, "isModalOpen :: ", isModalOpen);
+    if (editingProduct) setIsModalOpen(true);           // Open the modal
+  };
+
+
   return (
     <>
 
@@ -14,9 +30,20 @@ function Products({ prod }) {
             itemPrice={item.price}
             itemRating={4}
             desc={item.description}
+            onEdit={() => openEditModal(item)}
           />
         ))}
       </div>
+
+      {isModalOpen && editingProduct && (
+        <EditModal
+          editData={editingProduct}
+          isOpen={isModalOpen}
+          setOpen={setIsModalOpen}
+          onClose={() => setIsModalOpen(false)}
+        />
+      )}
+
     </>
   );
 }

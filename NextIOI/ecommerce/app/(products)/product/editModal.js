@@ -1,46 +1,48 @@
 'use client'
+import styles from "@/app/(admin)/admin/form.module.css"
+import Modal from "@/components/ui/modal"
+import { useState } from "react"
+import axios from "axios"
+// import { useRouter } from "next/navigation"
 
-import styles from '@/app/(admin)/admin/form.module.css'
-import { useState } from 'react'
-import axios from 'axios'
+export default function EditModal({ editData_, isOpen, setOpen, onClose }) {
+    console.log("inside edit modal", editData_);
 
-function AddProduct() {
-    const [formData, setData] = useState({
-        name: "",
-        price: 0,
-        stock: 0,
-        image: "",
-        category: "",
-        description: ""
+    const [editData, setEditData] = useState({
+        name: editData_?.name,
+        price: editData_?.price,
+        stock: editData_?.stock,
+        image: editData_?.image,
+        category: editData_?.category,
+        description: editData_?.description
     })
     const handleChange = (e) => {
-        setData({
-            ...formData,
-            [e.target.name]: e.target.value
-        })
+        const { name, value } = e.target;
+        setEditData({ ...editData, [name]: value });
     }
-    const handleSubmit = (e) => {
+    const handleSubmit = async (e) => {
         e.preventDefault();
-        console.log(formData)
-        axios.post("http://localhost:3000/api/products", formData)
-            .then((res) => {
-                console.log(res.data);
-            })
-            .catch((err) => {
-                console.log(err);
-            })
+        try {
+            // const res = await axios.post(`http://localhost:3000/api/products`, editData);
+            // router.refresh();
+            console.log(editData);
+        } catch (error) {
+            console.log(error);
+        }
+        onClose();
     }
     return (
-        <div className="w-full flex justify-center mt-10">
-            <form className="bg-white shadow-lg rounded-xl p-8 w-full max-w-md space-y-5" onSubmit={handleSubmit}>
-                <h2 className={` text-2xl font-semibold text-center text-gray-700 mb-4`}>
-                    Add New Product
+        <Modal isOpen={isOpen} onClose={() => setOpen(false)} >
+            <form className="bg-white shadow-md rounded-xl p-6 w-full max-w-md space-y-3" onSubmit={handleSubmit}>
+                <h2 className={` text-2xl font-semibold text-center text-gray-700 mb-2`}>
+                    Edit the Product
                 </h2>
                 <div className="flex flex-col">
                     <label className={` text-gray-600 font-medium mb-1`}>Product Name ★</label>
                     <input
                         type="text"
                         name="name"
+                        defaultValue={editData?.name}
                         placeholder="Enter Product Name"
                         required
                         onChange={handleChange}
@@ -54,6 +56,7 @@ function AddProduct() {
                     <input
                         type="number"
                         name="price"
+                        defaultValue={editData?.price}
                         placeholder="Enter Product Price"
                         required
                         onChange={handleChange}
@@ -65,6 +68,7 @@ function AddProduct() {
                     <input
                         type="number"
                         name="stock"
+                        defaultValue={editData?.stock}
                         placeholder="Enter Stock Quantity"
                         required
                         onChange={handleChange}
@@ -77,6 +81,7 @@ function AddProduct() {
                     <input
                         type="text"
                         name="image"
+                        defaultValue={editData?.image}
                         onChange={handleChange}
                         placeholder="Enter Image Link"
                         className="border rounded-lg px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500"
@@ -87,6 +92,7 @@ function AddProduct() {
                     <input
                         type="text"
                         name="category"
+                        defaultValue={editData?.category}
                         onChange={handleChange}
                         placeholder="Enter Category name"
                         className="border rounded-lg px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500"
@@ -97,6 +103,7 @@ function AddProduct() {
                     <input
                         type="text"
                         name="description"
+                        defaultValue={editData?.description}
                         placeholder="Enter Product Description"
                         maxLength={100}
                         onChange={handleChange}
@@ -105,13 +112,12 @@ function AddProduct() {
                 </div>
                 <button
                     type="submit"
+                    onClick={handleSubmit}
                     className="w-full bg-blue-600 text-white py-2 rounded-lg text-lg font-medium hover:bg-blue-700 transition-all"
                 >
                     Add Product
                 </button>
             </form>
-        </div>
-    )
+        </Modal>
+    );
 }
-
-export default AddProduct
