@@ -1,0 +1,173 @@
+[
+  {
+    "full_name": "Aadhaar Goel",
+    "email": "aadhaargoel123@gmail.com",
+    "age": 23,
+    "gender": "male",
+    "role": "admin",
+    "created_at": "2025-09-07 05:35:55+05:30",
+    "updated_at": "2025-09-07 05:35:55+05:30"
+  },
+  {
+    "full_name": "aadarsh",
+    "email": "aadarsh.cf2024@gmail.com",
+    "age": 43,
+    "gender": "male",
+    "role": "customer",
+    "created_at": "2025-09-08 02:17:09+05:30",
+    "updated_at": "2025-09-08 02:17:09+05:30"
+  },
+  {
+    "full_name": "Aasha",
+    "email": "ad@m.com",
+    "age": 23,
+    "gender": "female",
+    "role": "customer",
+    "created_at": "2025-09-08 03:02:13+05:30",
+    "updated_at": "2025-09-08 03:02:13+05:30"
+  },
+  {
+    "full_name": "aditya",
+    "email": "aad@g.com",
+    "age": 32,
+    "gender": "male",
+    "role": "customer",
+    "created_at": "2025-09-08 03:14:49+05:30",
+    "updated_at": "2025-09-08 03:14:49+05:30"
+  },
+  {
+    "full_name": "adityadf",
+    "email": "as@g.com",
+    "age": 18,
+    "gender": "male",
+    "role": "customer",
+    "created_at": "2025-09-08 03:15:22+05:30",
+    "updated_at": "2025-09-08 03:15:22+05:30"
+  },
+  {
+    "full_name": "Queen",
+    "email": "queen123@gmail.com",
+    "age": 20,
+    "gender": "female",
+    "role": "customer",
+    "created_at": "2025-09-08 03:17:19+05:30",
+    "updated_at": "2025-09-08 03:17:19+05:30"
+  },
+  {
+    "full_name": "divya",
+    "email": "d@g.com",
+    "age": 26,
+    "gender": "male",
+    "role": "customer",
+    "created_at": "2025-09-08 11:09:32+05:30",
+    "updated_at": "2025-09-08 11:09:32+05:30"
+  },
+  {
+    "full_name": "aadhaargoel",
+    "email": "asdha@g.com",
+    "age": 28,
+    "gender": "male",
+    "role": "customer",
+    "created_at": "2025-09-08 11:19:37+05:30",
+    "updated_at": "2025-09-08 11:19:37+05:30"
+  },
+  {
+    "full_name": "aditya",
+    "email": "aaddfbgoel123@gmail.com",
+    "age": 41,
+    "gender": "male",
+    "role": "customer",
+    "created_at": "2025-09-10 02:09:48+05:30",
+    "updated_at": "2025-09-10 02:09:48+05:30"
+  },
+  {
+    "full_name": "aadhaarg",
+    "email": "aadhaarg@gmail.com",
+    "age": 37,
+    "gender": "male",
+    "role": "customer",
+    "created_at": "2025-09-10 02:18:29+05:30",
+    "updated_at": "2025-09-10 02:18:29+05:30"
+  },
+  {
+    "full_name": "qwertyu",
+    "email": "qwertyu@gmail.com",
+    "age": 29,
+    "gender": "female",
+    "role": "admin",
+    "created_at": "2025-09-10 04:44:52+05:30",
+    "updated_at": "2025-09-16 14:19:19+05:30"
+  },
+  {
+    "full_name": "Abhi G",
+    "email": "abhi@gmail.com",
+    "age": 32,
+    "gender": "male",
+    "role": "admin",
+    "created_at": "2025-09-12 16:32:53+05:30",
+    "updated_at": "2025-09-12 16:32:53+05:30"
+  },
+  {
+    "full_name": "Raja Babu",
+    "email": "rajababu123@gmail.com",
+    "age": 26,
+    "gender": "male",
+    "role": "customer",
+    "created_at": "2025-09-16 10:29:06+05:30",
+    "updated_at": "2025-09-16 12:46:39+05:30"
+  },
+  {
+    "full_name": "Raja",
+    "email": "rajababu12@gmail.com",
+    "age": 28,
+    "gender": "male",
+    "role": "customer",
+    "created_at": "2025-09-16 14:20:54+05:30",
+    "updated_at": "2025-09-16 14:20:54+05:30"
+  },
+  {
+    "full_name": "Awadh Kishor Singh",
+    "email": "awadhkishorsingh241@gmail.com",
+    "age": 29,
+    "gender": "male",
+    "role": "customer",
+    "created_at": "2025-09-18 00:44:16+05:30",
+    "updated_at": "2025-09-18 00:47:49+05:30"
+  },
+  {
+    "full_name": "baba",
+    "email": "baba123@gmail.com",
+    "age": 32,
+    "gender": "male",
+    "role": "customer",
+    "created_at": "2025-10-04 00:50:36+05:30",
+    "updated_at": "2025-10-04 00:50:36+05:30"
+  },
+  {
+    "full_name": "Testing",
+    "email": "testing@pwioi.com",
+    "age": 56,
+    "gender": "female",
+    "role": "customer",
+    "created_at": "2025-11-12 19:22:10+05:30",
+    "updated_at": "2025-11-12 19:22:10+05:30"
+  },
+  {
+    "full_name": "kdfh",
+    "email": "some@gmail.com",
+    "age": 32,
+    "gender": "female",
+    "role": "customer",
+    "created_at": "2025-11-14 13:24:42+05:30",
+    "updated_at": "2025-11-14 13:24:42+05:30"
+  },
+  {
+    "full_name": "Aditya Gupta",
+    "email": "adi@gmail.com",
+    "age": 24,
+    "gender": "male",
+    "role": "customer",
+    "created_at": "2026-01-09 09:22:12+05:30",
+    "updated_at": "2026-01-09 09:22:12+05:30"
+  }
+]
