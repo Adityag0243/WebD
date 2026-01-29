@@ -1,5 +1,6 @@
 const { getJSON, timers } = require("jquery");
 const { default: mongoose } = require("mongoose");
+const bcrypt = require("bcrypt");
 
 let userSchema = new mongoose.Schema(
     {
@@ -21,12 +22,21 @@ let userSchema = new mongoose.Schema(
             type: mongoose.Schema.Types.ObjectId,
             ref: "City",
             required: true,
-        }
+        },
+        password: { type: String, required: true, minlength: 8, select: false },
     },
     { timestamps: true },
 );
 
-let User = mongoose.model("User", userSchema);
+userSchema.pre("save", async function (next) {
+    if (!this.isModified("password")) {  
+        return;
+    }
+    this.password = await bcrypt.hash(this.password, 10);
+});
+
+
+let User = mongoose.model("User", userSchema)
 module.exports = User;
 
 // Server - DB - Tables
