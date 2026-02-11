@@ -10,11 +10,11 @@ export async function GET(request) {
         const page_no = searchParams.get('page_no') || 1;
         const page_size = searchParams.get('page_size') || 20;
         const category = searchParams.get('category') || '';
-        const sort = searchParams.get('sort') || 'price';
+        const sort = searchParams.get('sort') || 'created_at';
         const offset = (page_no - 1) * page_size;
 
         const res = await pool.query(
-            'select * from products where name ilike $1  order by $2 limit $3 offset $4', [(`%${search}%`), sort, page_size, offset]);
+            'select * from products where name ilike $1  order by $2 desc limit $3 offset $4', [(`%${search}%`), sort, page_size, offset]);
 
         return NextResponse.json(res.rows);
     }

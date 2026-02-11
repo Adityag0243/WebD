@@ -11,15 +11,6 @@ import styles from '@/app/(admin)/admin/form.module.css'
 
 function Card({ id_, imgSrc, itemName, itemPrice, desc, itemRating = 4, onEdit }) {
   const router = useRouter();
-  const [isModalOpen, setIsModalOpen] = useState(false);
-  const [editData, setEditData] = useState({
-    id: id_,
-    imgSrc: imgSrc,
-    itemName: itemName,
-    itemPrice: itemPrice,
-    desc: desc,
-    itemRating: itemRating
-  })
 
   const handleDelete = async (e) => {
     e.stopPropagation();
@@ -29,7 +20,6 @@ function Card({ id_, imgSrc, itemName, itemPrice, desc, itemRating = 4, onEdit }
     try {
       const res = await axios.delete(`http://localhost:3000/api/products`, { data: payload });
       router.refresh();
-      console.log(res.data);
     } catch (error) {
       console.log(error);
     }
@@ -39,7 +29,6 @@ function Card({ id_, imgSrc, itemName, itemPrice, desc, itemRating = 4, onEdit }
     try {
       const res = await axios.post(`http://localhost:3000/api/products`, editData);
       router.refresh();
-      console.log(res.data);
     } catch (error) {
       console.log(error);
     }
@@ -54,22 +43,14 @@ function Card({ id_, imgSrc, itemName, itemPrice, desc, itemRating = 4, onEdit }
   const handleEdit = async (e) => {
     e.stopPropagation();
     try {
-      console.log("I am here");
       if (onEdit) {
         onEdit();
       }
-      // let payload = {
-      //   "id": id_
-      // }
-      // setIsModalOpen(true);
-      // console.log("Modal Opened:  ", isModalOpen);
-
-
     } catch (error) {
       console.log(error);
     }
-
   }
+
   return (
     <div
       className="rounded-xl overflow-hidden shadow-xl hover:scale-102 transition-transform duration-400 cursor-pointer border border-gray-200"
@@ -102,87 +83,6 @@ function Card({ id_, imgSrc, itemName, itemPrice, desc, itemRating = 4, onEdit }
             <Pencil className='text-green-500' />
           </Button>
         </div>
-
-        {/* <Modal isOpen={isModalOpen} onClose={() => setIsModalOpen(false)}>
-          <form className="bg-white shadow-lg rounded-xl p-8 w-full max-w-md space-y-5" onSubmit={handleSubmit}>
-            <h2 className={` text-2xl font-semibold text-center text-gray-700 mb-4`}>
-              Add New Product
-            </h2>
-            <div className="flex flex-col">
-              <label className={` text-gray-600 font-medium mb-1`}>Product Name ★</label>
-              <input
-                type="text"
-                name="name"
-                placeholder="Enter Product Name"
-                required
-                onChange={handleChange}
-                className={` ${styles.input} focus:outline-none focus:ring-2 focus:ring-blue-500`}
-              />
-            </div>
-
-
-            <div className="flex flex-col">
-              <label className="text-gray-600 font-medium mb-1">Product Price★</label>
-              <input
-                type="number"
-                name="price"
-                placeholder="Enter Product Price"
-                required
-                onChange={handleChange}
-                className={`${styles.input} focus:outline-none focus:ring-2 focus:ring-blue-500`}
-              />
-            </div>
-            <div className="flex flex-col">
-              <label className="text-gray-600 font-medium mb-1">Product Stock★</label>
-              <input
-                type="number"
-                name="stock"
-                placeholder="Enter Stock Quantity"
-                required
-                onChange={handleChange}
-                min="1"
-                className="border rounded-lg px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500"
-              />
-            </div>
-            <div className="flex flex-col">
-              <label className="text-gray-600 font-medium mb-1">Product Image Link</label>
-              <input
-                type="text"
-                name="image"
-                onChange={handleChange}
-                placeholder="Enter Image Link"
-                className="border rounded-lg px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500"
-              />
-            </div>
-            <div className="flex flex-col">
-              <label className="text-gray-600 font-medium mb-1">Product Category</label>
-              <input
-                type="text"
-                name="category"
-                onChange={handleChange}
-                placeholder="Enter Category name"
-                className="border rounded-lg px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500"
-              />
-            </div>
-            <div className="flex flex-col">
-              <label className="text-gray-600 font-medium mb-1">Product Description</label>
-              <input
-                type="text"
-                name="description"
-                placeholder="Enter Product Description"
-                maxLength={100}
-                onChange={handleChange}
-                className="border rounded-lg px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500"
-              />
-            </div>
-            <button
-              type="submit"
-              className="w-full bg-blue-600 text-white py-2 rounded-lg text-lg font-medium hover:bg-blue-700 transition-all"
-            >
-              Add Product
-            </button>
-          </form>
-        </Modal> */}
       </div>
     </div>
   )

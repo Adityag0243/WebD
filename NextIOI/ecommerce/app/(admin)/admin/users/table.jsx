@@ -3,7 +3,7 @@ import React from 'react'
 
 
 function UserTable({ users, search = '' }) {
-    console.log(users);
+    // console.log(users);
 
     return (
         <>
@@ -21,7 +21,9 @@ function UserTable({ users, search = '' }) {
 
                     <tbody>
                         {users?.map((user) => (
-                            <tr key={user.id} className="hover:bg-gray-50">
+                            <tr 
+                                key={user._id} 
+                                className="hover:bg-gray-50">
                                 <td className="px-3 py-2 border border-gray-400">{user.full_name}</td>
                                 <td className="px-3 py-2 border border-gray-400">{user.gender}</td>
                                 <td className="px-3 py-2 border border-gray-400">{user.age}</td>

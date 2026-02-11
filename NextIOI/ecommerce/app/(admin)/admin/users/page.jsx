@@ -14,10 +14,10 @@ import {
 async function UserPage() {
 
     const res = await axios.get('http://localhost:3000/api/users')
-    console.log("res: ", res);
+    // console.log("res: ", res);
 
     const users = await res.data;
-    console.log("users: ", users);
+    // console.log("users: ", users);
 
     return (
         <div
@@ -51,7 +51,10 @@ async function UserPage() {
                 <Search className="text-amber-700 bg-amber-200 py-2 rounded-full h-10 w-10" />
                 <input type="text" className='text-lg p-2 w-100 border rounded-2xl' placeholder='Search' />
             </div>
-            <UserTable users={users} search={""} />
+            <UserTable 
+                users={users} 
+                search={""} 
+            />
 
             <Pagination>
                 <PaginationContent>

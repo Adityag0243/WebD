@@ -10,11 +10,13 @@ function Products({ prod }) {
   const [isModalOpen, setIsModalOpen] = useState(false);
 
   const openEditModal = (productData) => {
-    console.log("called for :: ", productData);
     setEditingProduct(productData);
-    console.log("Value of editingproduct :: ", editingProduct, "isModalOpen :: ", isModalOpen);
-    if (editingProduct) setIsModalOpen(true);           // Open the modal
+    setIsModalOpen(true);
   };
+
+  const closeEditModal = () => {
+    setIsModalOpen(false);
+  }
 
 
   return (
@@ -37,10 +39,9 @@ function Products({ prod }) {
 
       {isModalOpen && editingProduct && (
         <EditModal
-          editData={editingProduct}
           isOpen={isModalOpen}
-          setOpen={setIsModalOpen}
-          onClose={() => setIsModalOpen(false)}
+          onClose={closeEditModal}
+          editData_={editingProduct}
         />
       )}
 

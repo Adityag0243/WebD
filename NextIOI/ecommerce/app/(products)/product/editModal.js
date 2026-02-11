@@ -3,10 +3,12 @@ import styles from "@/app/(admin)/admin/form.module.css"
 import Modal from "@/components/ui/modal"
 import { useState } from "react"
 import axios from "axios"
-// import { useRouter } from "next/navigation"
+import { useRouter } from "next/navigation"
 
-export default function EditModal({ editData_, isOpen, setOpen, onClose }) {
+export default function EditModal({ editData_, isOpen, onClose }) {
     console.log("inside edit modal", editData_);
+    const router = useRouter();
+    const [dataChanged, setDataChanged] = useState(false);
 
     const [editData, setEditData] = useState({
         name: editData_?.name,
@@ -16,23 +18,28 @@ export default function EditModal({ editData_, isOpen, setOpen, onClose }) {
         category: editData_?.category,
         description: editData_?.description
     })
+
     const handleChange = (e) => {
+        setDataChanged(true);
         const { name, value } = e.target;
         setEditData({ ...editData, [name]: value });
     }
     const handleSubmit = async (e) => {
+
         e.preventDefault();
+        if (!dataChanged) onClose();
+        setDataChanged(false);
         try {
-            // const res = await axios.post(`http://localhost:3000/api/products`, editData);
-            // router.refresh();
-            console.log(editData);
+            const res = await axios.patch(`http://localhost:3000/api/products/${editData_?.id}`, editData);
+            router.refresh();
+            setDataChanged(false);
         } catch (error) {
             console.log(error);
         }
         onClose();
     }
     return (
-        <Modal isOpen={isOpen} onClose={() => setOpen(false)} >
+        <Modal isOpen={isOpen} onClose={onClose} >
             <form className="bg-white shadow-md rounded-xl p-6 w-full max-w-md space-y-3" onSubmit={handleSubmit}>
                 <h2 className={` text-2xl font-semibold text-center text-gray-700 mb-2`}>
                     Edit the Product
@@ -115,7 +122,7 @@ export default function EditModal({ editData_, isOpen, setOpen, onClose }) {
                     onClick={handleSubmit}
                     className="w-full bg-blue-600 text-white py-2 rounded-lg text-lg font-medium hover:bg-blue-700 transition-all"
                 >
-                    Add Product
+                    Edit Product
                 </button>
             </form>
         </Modal>

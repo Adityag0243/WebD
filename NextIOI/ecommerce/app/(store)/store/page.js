@@ -56,7 +56,7 @@ function Shopcard({ shopName, shopImg, shopLocation, isImageOnRight = false }) {
 
 
             <Modal isOpen={isModalOpen} onClose={() => setIsModalOpen(false)}>
-                <h2 className='text-2xl font-bold text-center m-2'>Book your time slot</h2>
+                <h2 className='text-2xl font-bold text-center m-2 truncate'>Book your slot for {shopName}</h2>
                 <p className='text-gray-700 text-center m-2'>Select a date and time slot to book your appointment.</p>
                 <div className='flex justify-center m-2'>
                     <input type="date" min={new Date().toISOString().split('T')[0]} className='w-48' />

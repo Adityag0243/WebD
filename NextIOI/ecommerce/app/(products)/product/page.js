@@ -21,8 +21,6 @@ async function DataLoader({ searchParams }) {
   const res = await axios.get(`http://localhost:3000/api/products?search=${search}&rating=${rating}&category=${category}`);
   let data = await res.data;
 
-
-
   return (
     <>
       <div
