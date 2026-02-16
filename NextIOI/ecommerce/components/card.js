@@ -9,13 +9,15 @@ import Modal from "@/components/ui/modal"
 import styles from '@/app/(admin)/admin/form.module.css'
 
 
-function Card({ id_, imgSrc, itemName, itemPrice, desc, itemRating = 4, onEdit }) {
+function Card({ _id, imgSrc, itemName, itemPrice, desc, itemRating = 4, onEdit }) {
   const router = useRouter();
+  // console.log("card page : ", _id);
+  
 
   const handleDelete = async (e) => {
     e.stopPropagation();
     let payload = {
-      "id": id_
+      "id": _id
     }
     try {
       const res = await axios.delete(`http://localhost:3000/api/products`, { data: payload });
@@ -54,7 +56,7 @@ function Card({ id_, imgSrc, itemName, itemPrice, desc, itemRating = 4, onEdit }
   return (
     <div
       className="rounded-xl overflow-hidden shadow-xl hover:scale-102 transition-transform duration-400 cursor-pointer border border-gray-200"
-      onClick={() => { router.push(`/product/${id_}`) }}
+      onClick={() => { router.push(`/product/${_id}`) }}
     >
       <div
         className='flex items-center justify-center object-cover p-2'

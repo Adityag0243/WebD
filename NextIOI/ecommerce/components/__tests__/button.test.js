@@ -1,0 +1,10 @@
+import { render, screen } from '@testing-library/react'
+import Button from '../button'
+
+
+describe('Button', () => {
+    it('renders button text', () => {
+        render(<Button label="Click me" />)
+        expect(screen.getByText('Click me')).toBeInTheDocument()
+    })
+})

@@ -26,7 +26,7 @@ function Products({ prod }) {
         {prod.map((item, idx) => (
           <Card
             key={idx}
-            id_={item.id}
+            _id={item._id}
             imgSrc={item.image}
             itemName={item.name}
             itemPrice={item.price}

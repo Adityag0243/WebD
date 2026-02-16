@@ -1,7 +1,8 @@
-
 function page() {
   return (
-    <div>page</div>
+    <div>
+      pr admin
+    </div>
   )
 }
 

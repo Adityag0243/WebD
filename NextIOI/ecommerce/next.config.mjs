@@ -2,9 +2,7 @@
 const nextConfig = {
   /* config options here */
   reactCompiler: true,
-  experimental: {
-    turbo: false,
-  },
+
   images: {
     remotePatterns: [
       {
@@ -26,6 +24,10 @@ const nextConfig = {
       {
         protocol: 'https',
         hostname: 'picsum.photos',
+      },
+      {
+        protocol: 'https',
+        hostname: 'images.pexels.com',
       },
       {
         protocol: 'https',

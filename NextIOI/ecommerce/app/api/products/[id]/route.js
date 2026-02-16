@@ -1,57 +1,73 @@
-import pool from "@/lib/db";
 import { NextResponse } from "next/server";
+import { connectToDatabase } from "@/db/db.config";
+import { Product } from "@/model/product.model";
 
 export const runtime = "nodejs";
-// get product by id
 
-// api/product/1
+// GET /api/product/[id]
 export async function GET(request, { params }) {
     try {
+        await connectToDatabase();
         const { id } = await params;
-        const res = await pool.query('select * from products where id = $1', [id]);
-        return NextResponse.json(res.rows);
-    }
-    catch (error) {
+        const product = await Product.findById(id);
+        console.log("id  : ", id);
+        
+
+        if (!product) {
+        return NextResponse.json({ error: "Product not found" }, { status: 404 });
+        }
+
+        return NextResponse.json(product);
+    } catch (error) {
         console.error(error);
-        return NextResponse.json({ error: error.message });
+        return NextResponse.json({ error: error.message }, { status: 500 });
     }
 }
 
-
+// PATCH /api/product/[id]
 export async function PATCH(request, { params }) {
     try {
-        const { id } = await params;
+        await connectToDatabase();
+        const { id } = params;
         const body = await request.json();
-        let index = 1;
-        let fields = [];
-        let values = [];
 
-        for (const key in body) {
-            fields.push(`${key} = $${index}`);
-            values.push(body[key]);
-            index++;
+        const updatedProduct = await Product.findByIdAndUpdate(id, body, {
+        new: true, // return updated doc
+        runValidators: true, // enforce schema validation
+        });
+
+        if (!updatedProduct) {
+        return NextResponse.json({ error: "Product not found" }, { status: 404 });
         }
-        values.push(id);
 
-        const res = await pool.query(`update products set ${fields.join(', ')} where id = $${index}`, values);
-        return NextResponse.json({ message: 'Product updated successfully' });
-
-    }
-    catch (error) {
-        console.error(error)
-        return NextResponse.json({ error: error.message });
+        return NextResponse.json({
+        message: "Product updated successfully",
+        data: updatedProduct,
+        });
+    } catch (error) {
+        console.error(error);
+        return NextResponse.json({ error: error.message }, { status: 500 });
     }
 }
 
+// DELETE /api/product/[id]
 export async function DELETE(request, { params }) {
     try {
-        const { id } = await params;
-        console.log(id);
+        await connectToDatabase();
+        const { id } = params;
 
-        const res = await pool.query('delete from products where id = $1 returning *', [id]);
-        return NextResponse.json({ message: res.rowCount > 0 ? 'Product deleted successfully' : 'Product not found', data: res.rows[0] });
+        const deletedProduct = await Product.findByIdAndDelete(id);
+
+        if (!deletedProduct) {
+        return NextResponse.json({ message: "Product not found" }, { status: 404 });
+        }
+
+        return NextResponse.json({
+        message: "Product deleted successfully",
+        data: deletedProduct,
+        });
     } catch (error) {
-        console.error(error)
-        return NextResponse.json({ error: error.message });
+        console.error(error);
+        return NextResponse.json({ error: error.message }, { status: 500 });
     }
 }
