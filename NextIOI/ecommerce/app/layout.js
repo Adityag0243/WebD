@@ -23,13 +23,13 @@
 
 
 // export default function RootLayout({ children }) {
-  
+
 //   return (
 //     <html lang="en">
 //       <body
 //         className={`${myFont.className}  antialiased`}
 //       >
-        
+
 //         <ReduxProvider>
 //           <header
 //             className="
@@ -58,7 +58,7 @@
 //           </header>
 //           {children}
 //         </ReduxProvider>
-      
+
 //       </body>
 //     </html>
 //   );
@@ -72,6 +72,7 @@ import { myFont } from "./font";
 import Cart from "./cart";
 import ReduxProvider from "@/providers/ReduxProvider";
 import Footer from "@/components/footer";
+import ChatBot from "@/components/ChatBot";
 
 
 const allura = Kalnia({
@@ -116,8 +117,10 @@ export default function RootLayout({ children }) {
           {/* Main content */}
           {children}
 
+          <ChatBot />
+
           {/* Footer */}
-          <Footer/>
+          <Footer />
         </ReduxProvider>
       </body>
     </html>
