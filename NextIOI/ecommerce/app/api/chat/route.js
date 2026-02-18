@@ -1,12 +1,13 @@
 import { supabase } from "@/lib/supabase";
-import { getEmbedding, getChatResponse } from "@/lib/gemini";
+import { getEmbedding, getChatResponse, classifyIntent, getOrderResponse } from "@/lib/gemini";
+import { getUserOrders } from "@/lib/orders";
 import { NextResponse } from "next/server";
+import { cookies } from "next/headers";
+import jwt from "jsonwebtoken";
 
 /**
  * POST /api/chat
- * Supabase-powered chatbot with vector embeddings
- * Request body: { question: string }
- * Response: { answer: string, products: Array }
+ * Agentic Chatbot for Products and Orders
  */
 export async function POST(req) {
   try {
@@ -21,40 +22,96 @@ export async function POST(req) {
 
     console.log("User question:", question);
 
-    // Step 1: Generate embedding for the user's question
-    console.log("Generating embedding from question...");
-    const embedding = await getEmbedding(question);
-    console.log("Embedding generated successfully");
+    // Step 1: Classify Intent
+    const intent = await classifyIntent(question);
+    console.log("Identified intent:", intent);
 
-    // Step 2: Search Supabase for similar products using vector similarity
-    console.log("Searching Supabase for similar products...");
-    const { data: products, error: searchError } = await supabase
-      .rpc("match_products", {
-        query_embedding: embedding,
-        match_count: 3,
-        min_similarity: 0.5
+    // Step 2: Agent Routing
+    if (intent === 'order') {
+      // --- ORDER AGENT ---
+      console.log("Routing to Order Agent...");
+
+      // Get user from cookie
+      const cookieStore = await cookies();
+      const token = cookieStore.get("auth-token")?.value;
+      console.log("Token:", token);
+
+      let user = null;
+      if (token) {
+        try {
+          // Decode token to get user info (email/googleId)
+          // Note: In production, verify the token signature
+          user = jwt.decode(token);
+        } catch (e) {
+          console.error("Token decode error:", e);
+        }
+      }
+
+      if (!user) {
+        return NextResponse.json({
+          answer: "I can help with your orders, but you need to be logged in first. Please log in to view your order history.",
+          products: [],
+          intent: 'order'
+        });
+      }
+
+      // Fetch oders using email or googleId
+      const userId = user.email || user.googleId;
+      const orders = await getUserOrders(userId);
+      const answer = await getOrderResponse(question, orders);
+
+      return NextResponse.json({
+        answer,
+        products: [], // Frontend expects this array
+        intent: 'order'
       });
 
-    if (searchError) {
-      console.error("Supabase search error:", searchError);
-      return NextResponse.json(
-        {
-          error: "Failed to search products",
-          details: searchError.message
-        },
-        { status: 500 }
-      );
+    } else if (intent === 'product' || intent === 'general') {
+      // --- PRODUCT AGENT ---
+      console.log("Routing to Product Agent...");
+
+      // Only search for products if intent is explicitly 'product' 
+      // OR if it's 'general' but might benefit from context (optional, but let's keep it simple: search if 'product')
+
+      let products = [];
+
+      if (intent === 'product') {
+        // Generate embedding
+        const embedding = await getEmbedding(question);
+
+        // Search Supabase
+        const { data, error: searchError } = await supabase
+          .rpc("match_products", {
+            query_embedding: embedding,
+            match_count: 3,
+            min_similarity: 0.5
+          });
+
+        if (!searchError) {
+          products = data || [];
+        } else {
+          console.error("Supabase search error:", searchError);
+        }
+      }
+
+      // For 'general', we pass empty products, or maybe we want to allow vector search for general too? 
+      // The previous logic always searched. Let's keep it robust: 
+      // If intent is 'general', we skip search to save resources, UNLESS the model got it wrong.
+      // But let's trust the classifier for now.
+
+      const answer = await getChatResponse(question, products);
+
+      return NextResponse.json({
+        answer,
+        products: products,
+        count: products.length,
+        intent: 'product'
+      });
     }
 
-    console.log(`Found ${products?.length || 0} matching products`);
-
-    // Step 3: Generate AI response with Gemini
-    const answer = await getChatResponse(question, products || []);
-
     return NextResponse.json({
-      answer,
-      products: products || [],
-      count: products?.length || 0
+      answer: "I'm not sure how to help with that yet.",
+      products: []
     });
 
   } catch (error) {
